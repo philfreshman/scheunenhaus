@@ -1,0 +1,260 @@
+@use '../utilities/variables' as *;
+
+@mixin page-padding{
+    @media (min-width: 1px) and(max-width: 599px){
+        padding-left: 1%;
+        padding-right: 1%;
+        width: auto;
+    }
+    @media (min-width: 600px) and (max-width: 879px){
+        padding-left: 1%;
+        padding-right: 1%;
+        width: auto;
+    }
+    @media (min-width: 880px) and (max-width: 1299px){
+        padding-left: 8%;
+        padding-right: 8%;
+        width: auto;
+    }
+    @media (min-width: 1300px) and (max-width: 1649px){
+        padding-left: 12%;
+        padding-right: 12%;
+    }
+    @media (min-width: 1650px){
+        padding-left: $content-padding;
+        padding-right: $content-padding;
+        width: auto;
+    }
+}
+
+
+@mixin grid-template{
+    @media (max-width: 729px){
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: unset;
+            grid-template-rows: unset;
+            grid-row-gap: 25px;
+        }
+    }
+    @media (min-width: 730px) and (max-width: 879px){
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1% 47% 4% 47% 1%;
+            grid-template-rows: auto;
+            grid-row-gap: 30px;
+        }
+    }
+
+    @media (min-width: 880px) and (max-width: 1299px){
+        .grid-container {
+            display: grid;
+            grid-template-columns: 8% 40% 4% 40% 8%;
+            grid-template-rows: auto;
+            grid-row-gap: 40px;
+        }
+    }
+
+    @media (min-width: 1300px) and (max-width: 1649px){
+        .grid-container {
+            display: grid;
+            grid-template-columns: 12% 36% 4% 36% 12%;
+            grid-template-rows: auto;
+            grid-row-gap: 40px;
+        }
+    }
+    @media (min-width: 1650px){
+        .grid-container {
+            display: grid;
+            grid-template-columns: 14% 34% 4% 34% 14%;
+            grid-template-rows: auto;
+            grid-row-gap: 50px;
+        }
+    }
+}
+
+
+@mixin descriptions{
+    @media (min-width: 1px) and (max-width: 579px){
+        .center{
+            padding: 0 1vw 0 3vw;
+        }
+
+        p{
+            width: auto;
+        }
+        h3{
+            width: 350px;
+        }
+
+    }
+    @media (min-width: 580px) and (max-width: 744px){
+        .center{
+            padding: 0 1vw 0 3vw;
+        }
+
+        p{
+            width: unset;
+        }
+    }
+    @media (min-width: 745px){
+        .center{
+            padding:0;
+        }
+
+        p{
+            width: 670px;
+        }
+    }
+    @media (max-width: 1180px){
+        .text-container{
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+        .strong:first-of-type{
+            padding-bottom: 15px;
+        }
+    }
+}
+
+
+
+
+
+
+@mixin hero-font-size{
+    @media (max-width: 350px){
+        font-size: 2.1rem;
+        letter-spacing: 13px;
+    }
+    @media (min-width: 351px) and (max-width: 380px){
+        font-size: 2.8rem;
+        letter-spacing: 14px;
+    }
+    @media (min-width: 381px) and (max-width: 1300px){
+        font-size: 2.8rem;
+        letter-spacing: 14px;
+    }
+    @media (min-width: 1301px) and (max-width: 1499px){
+        font-size: 2.9rem;
+        letter-spacing: 16px;
+    }
+    @media (min-width: 1500px){
+        font-size: 3rem;
+        letter-spacing: 17px;
+    }
+}
+
+
+
+
+@mixin form-size{
+    @media only screen and (max-width: 699px){
+        padding: 5px;
+    }
+    @media (min-width: 700px) and (max-width: 999px){
+        padding: 20px;
+    }
+
+    @media only screen and (min-width: 1000px){
+        padding: 40px;
+    }
+}
+
+@mixin header-visibility{
+    @media only screen and (max-width: 1000px){
+        visibility: hidden;
+        h2{
+            visibility: hidden;
+        }
+        background-color: rgba(255, 255, 255, 0);
+    }
+    @media only screen and (min-width: 1000px){
+        visibility: visible;
+        h2{
+            visibility: visible;
+        }
+    }
+}
+
+
+@mixin hamburger-visibility{
+    @media only screen and (max-width: 1000px){
+        visibility: visible;
+
+    }
+    @media only screen and (min-width: 1000px){
+        visibility: hidden;
+
+    }
+}
+
+@mixin grundriss-size{
+    @media only screen and (max-width: 1000px){
+        width: 98%;
+
+    }
+    @media only screen and (min-width: 1000px){
+        width: 70%;
+
+    }
+}
+
+
+@mixin maps-size{
+    @media only screen and (max-width: 1000px){
+        height: 100%;
+        scroll-margin-top: 0px;
+    }
+    @media only screen and (min-width: 1000px){
+        height: 78%;
+        scroll-margin-top: 35px;
+    }
+}
+
+
+@mixin arrow-padding-right{
+    @media only screen and (max-width: 1000px){
+        right: 4vw;
+
+    }
+    @media only screen and (min-width: 1000px){
+        right: 1.5vw;
+    }
+}
+
+
+
+
+@mixin grundriss-order{
+    @media (max-width: 1179px){
+        .position-container{
+            position: unset;
+            p{
+                position: unset;
+            }
+        }
+    }
+    @media (min-width: 1180px){
+        .position-container{
+            position: relative;
+            p{
+                position: absolute;
+            }
+        }
+    }
+}
+
+@mixin snap-section{
+    @media only screen and (max-width: 1000px){
+        scroll-margin-top: -30px;
+
+    }
+    @media only screen and (min-width: 1000px){
+        scroll-margin-top: 30px;
+
+    }
+
+}

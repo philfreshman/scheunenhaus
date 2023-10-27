@@ -1,0 +1,310 @@
+#s0 {
+  padding-top: 0;
+}
+
+.hero-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/Startbild.webp");
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+#ausstattung {
+  display: flex;
+  padding-top: 0;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}
+@media (max-width: 699px) {
+  #ausstattung {
+    padding-left: 1%;
+    padding-right: 1%;
+    width: auto;
+  }
+}
+@media (min-width: 700px) and (max-width: 1299px) {
+  #ausstattung {
+    padding-left: 8%;
+    padding-right: 8%;
+    width: auto;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1499px) {
+  #ausstattung {
+    padding-left: 12%;
+    padding-right: 12%;
+    width: auto;
+  }
+}
+@media (min-width: 1500px) {
+  #ausstattung {
+    padding-left: 16%;
+    padding-right: 16%;
+    width: auto;
+  }
+}
+
+.text-container {
+  width: 100%;
+  height: auto;
+}
+.text-container p {
+  line-height: 2.1;
+}
+
+#das-haus {
+  padding-top: 50px;
+  height: auto;
+  width: auto;
+  padding-bottom: 100px;
+}
+#das-haus .visible {
+  visibility: visible;
+}
+#das-haus .unvisible {
+  visibility: hidden;
+}
+#das-haus p {
+  padding: -8vh 0 0 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 14% 34% 4% 34% 14%;
+    grid-template-rows: auto;
+    grid-row-gap: 50px;
+  }
+}
+.grid-img {
+  width: 100%;
+}
+.grid-img img {
+  height: auto;
+  width: 100%;
+}
+
+#img1 {
+  grid-area: 1/2/3/5;
+  height: 100%;
+  aspect-ratio: 3.2/2;
+}
+
+#img2 {
+  grid-area: 3/2/5/3;
+  aspect-ratio: 5/7;
+}
+
+#text-haus {
+  margin: 0;
+  padding: 0;
+  grid-area: 3/4/4/5;
+}
+
+#img3 {
+  grid-area: 4/4/6/5;
+  aspect-ratio: 5/7;
+  align-self: end;
+}
+
+#img4 {
+  grid-area: 5/2/7/3;
+  aspect-ratio: 5/7;
+}
+
+#img5 {
+  grid-area: 6/4/7/5;
+  height: 100%;
+}
+
+#img6 {
+  grid-area: 7/2/9/5;
+}
+
+#img7 {
+  grid-area: 9/2/11/5;
+}
+
+#text-quadrat {
+  grid-area: 11/2/12/3;
+}
+
+#img8 {
+  grid-area: 11/4/13/5;
+}
+
+#img9 {
+  grid-area: 12/2/14/3;
+  align-self: end;
+}
+
+#img10-schlafboden {
+  grid-area: 13/4/15/5;
+}
+
+#img11 {
+  grid-area: 14/2/16/3;
+}
+
+#img12-kindernische {
+  grid-area: 15/4/16/5;
+}
+
+#img13 {
+  grid-area: 16/2/18/5;
+}
+
+#img14 {
+  grid-area: 18/2/20/5;
+}
+
+#img15 {
+  grid-area: 20/2/21/3;
+  align-self: end;
+  column-gap: 200px;
+}
+
+#img16 {
+  grid-area: 20/4/22/5;
+  align-self: start;
+}
+
+#img17 {
+  grid-area: 21/2/22/3;
+  align-self: end;
+}
+
+#grundriss {
+  display: flex;
+  padding-top: 0;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+}
+
+#grundriss-bild {
+  max-width: 69%;
+  max-height: calc(97% - 60px);
+  padding: 0;
+}
+
+#kontakt {
+  z-index: 2;
+}
+@media (max-width: 699px) {
+  #kontakt {
+    padding-left: 1%;
+    padding-right: 1%;
+    width: auto;
+  }
+}
+@media (min-width: 700px) and (max-width: 1299px) {
+  #kontakt {
+    padding-left: 8%;
+    padding-right: 8%;
+    width: auto;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1499px) {
+  #kontakt {
+    padding-left: 12%;
+    padding-right: 12%;
+    width: auto;
+  }
+}
+@media (min-width: 1500px) {
+  #kontakt {
+    padding-left: 16%;
+    padding-right: 16%;
+    width: auto;
+  }
+}
+#kontakt strong {
+  line-height: 1.7;
+}
+#kontakt input {
+  margin: 2px 0 20px 0;
+  line-height: 1.5;
+  padding: 10px;
+  font-size: 1rem;
+}
+#kontakt #name, #kontakt #lastname {
+  width: 12vw;
+  min-width: 100px;
+}
+#kontakt #email {
+  width: calc(24vw + 28px);
+  min-width: 228px;
+}
+#kontakt #checkbox {
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+#kontakt textarea {
+  font: 1rem sans-serif;
+  width: calc(100% - 22px);
+  min-height: 100px;
+  resize: none;
+  line-height: 1.5;
+  padding: 10px;
+  margin: 9px 0 18px 0;
+}
+#kontakt label {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+#kontakt label:last-child {
+  padding-left: 5px;
+  line-height: 2;
+  content: "";
+  font-weight: 500;
+}
+#kontakt label:last-child::after {
+  content: unset;
+}
+#kontakt #submit-button {
+  margin-top: 2vh;
+}
+
+form {
+  background-color: rgba(221, 214, 209, 0.54);
+}
+@media only screen and (max-width: 1000px) {
+  form {
+    padding: 0;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  form {
+    padding: 40px;
+  }
+}
+
+#lage {
+  padding-top: 0;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  -webkit-box-shadow: 0px 17px 27px 0px #d1d1d1;
+  -moz-box-shadow: 0px 17px 27px 0px #d1d1d1;
+  box-shadow: 0px 17px 27px 0px #d1d1d1;
+}
+#lage iframe {
+  position: relative;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=index.css.map */

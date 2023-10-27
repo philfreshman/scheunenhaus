@@ -1,0 +1,19 @@
+#s0{
+  padding-bottom: 0;
+}
+
+.hero-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  //noinspection CssUnknownTarget
+  background-image: url("../img/Startbild.webp");
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  justify-content: center;
+  z-index: -1;
+}

@@ -1,0 +1,34 @@
+@use '../utilities/mixins' as *;
+
+.back-to-top{
+    @include arrow-padding-right;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    float:left;
+    position: fixed;
+    bottom: 0;
+
+    background-color: blue;
+
+    img{
+        z-index: 0;
+        width: 30px;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transition: transform ease-out 300ms;
+    }
+
+    img:hover {
+        transform: translate(0, -3px);
+        padding-bottom: 5px;
+    }
+
+}
+
+.back-to-top:hover{
+    cursor: pointer;
+}

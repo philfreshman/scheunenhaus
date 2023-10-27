@@ -1,0 +1,29 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as mixin;
+
+#grundriss{
+  height: auto;
+  @include mixin.page-padding;
+  flex-direction: column;
+
+}
+
+.grundriss-container{
+  display: flex;
+  height: inherit;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+#grundriss-bild{
+  padding-top: 10px;
+  @include mixin.grundriss-size;
+}
+
+
+@include mixin.grundriss-order
+

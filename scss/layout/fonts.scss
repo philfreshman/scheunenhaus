@@ -1,0 +1,66 @@
+@use '../utilities/mixins' as mixin;
+
+
+h1{
+    @include mixin.hero-font-size;
+    font-family: 'AmaticSC', sans-serif;
+    font-weight: bold;
+    line-height: 1.3;
+    margin: -2vh 0 0;
+}
+
+h3{
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 25px 0 25px 0;
+    text-wrap: normal;
+    line-height: 2.7rem;
+    padding: 0;
+}
+
+p{
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center{
+    text-wrap: normal;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: auto;
+}
+
+.strong{
+    align-self: start;
+    width: 7vw;
+
+    p{
+        font-family: 'Raleway-Bold', sans-serif;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        display: block;
+    }
+
+}
+
+textarea{
+    font-family: 'Raleway-Bold', sans-serif;
+}
+
+strong{
+    font-family: 'Raleway-Bold', serif;
+}
+
+@include mixin.descriptions;
