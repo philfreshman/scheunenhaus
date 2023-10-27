@@ -1,0 +1,7 @@
+@use '../utilities/mixins' as mixin;
+
+#preise{
+    //background-color: cadetblue;
+    @include mixin.page-padding;
+    height: auto;
+}

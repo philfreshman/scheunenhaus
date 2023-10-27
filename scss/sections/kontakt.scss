@@ -1,0 +1,103 @@
+@use '../utilities/mixins' as *;
+@use '../utilities/mixins' as mixin;
+
+#kontakt{
+    @include mixin.page-padding;
+
+
+
+    height: auto;
+    a:link{
+        text-decoration: none;
+        color: black;
+        padding-bottom: 4vh !important;
+    }
+
+
+    strong{
+        line-height: 1.7
+    }
+
+    input{
+        margin: 2px 0 20px 0;
+        line-height: 1;
+        padding: 5px;
+        font-size: 0.9rem;
+    }
+
+    #name, #lastname{
+        width: 12vw;
+        min-width: 100px;
+    }
+
+    #email{
+        width: calc( 24vw + 28px);
+        min-width: calc( 200px + 28px);
+    }
+
+    #checkbox{
+        margin-top:18px;
+        margin-bottom: 0;
+    }
+
+    textarea{
+        font: 1rem sans-serif;
+        width: calc(100% - 22px);
+        min-height: 100px;
+        //outline: none;
+        resize: none;
+        line-height: 1;
+        padding: 10px;
+        margin: 9px 0 18px 0;
+    }
+
+    label{
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    label:last-child{
+        //background-color: #007aff;
+        padding-left: 5px;
+        line-height: 2;
+        content: "";
+        font-weight: 500;
+    }
+
+    label:last-child::after{
+        content: unset;
+    }
+
+    #submit-button{
+        margin-top: 2vh;
+    }
+}
+
+form{
+    @include form-size;
+    margin-top: 8vh;
+    //background-color: rgba(221, 214, 209, 0.54);
+    background-color: #e1ddd9;
+}
+
+button{
+    margin: 10px 0 30px 0;
+}
+
+#label-link:hover{
+    cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select
+{
+    font: inherit;
+}
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}

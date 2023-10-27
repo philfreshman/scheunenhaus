@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<script src="js/calendar.js"></script>
+	<script src="js/moment.js"></script>
+	<link href='calendar.css' rel='stylesheet' />
+	<style>
+		:root{
+            /*--fc-border-color: rgba(255, 0, 0, 0);*/
+            /*--fc-border-color: rgba(255, 0, 0, 0);*/
+			--fc-daygrid-day-form: black;
+		}
+
+		.fc-button-primary{
+			color: green;
+			background-color: rgba(0, 0, 0, 0) !important;
+			border: 0 !important;
+			/*padding: 0 !important;*/
+			/*margin: 0 !important;*/
+		}
+
+        button:active{
+            background:rgba(0, 0, 0, 0) !important;
+        }
+        button:focus{
+            background:rgba(0, 0, 0, 0) !important;
+        }
+
+		.fc-icon{
+			color: black !important;
+		}
+
+        body {
+            font-family: "Raleway", sans-serif;
+            height: 100vh;
+			width: 100vw;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+			background-color: rgba(0, 0, 0, 0);
+        }
+
+		a{
+            font-family: "Raleway-Bold", sans-serif;
+            font-size: 0.8em;
+            /*letter-spacing: 2px;*/
+            display: block;
+            font-family: "Raleway", sans-serif;
+			/*text-transform: uppercase;*/
+		}
+
+		h2{
+            font-size: 17px !important;
+            /*text-transform: uppercase;*/
+		}
+
+        #calendar {
+            max-width: 100%;
+			max-height: 100%;
+            margin: 0 auto;
+        }
+
+		.fc-view-harness{
+            pointer-events: none;
+
+        }
+        .fc-day-today {
+            background: rgba(0,100,100,0) !important;
+            border: none !important;
+
+        }
+
+		.fc-day-disabled{
+            /*background: rgba(0,0,0,0) !important;*/
+
+        }
+
+	</style>
+</head>
+<body>
+
+
+<!--<label for="yearSelect">Year</label>-->
+<!--<br>-->
+<!--<select id="yearSelect" onchange="onYearChange(this.options[this.selectedIndex].value)">-->
+<!--	<option value="2022">2022</option>-->
+<!--	<option value="2023">2023</option>-->
+<!--</select>-->
+
+<!--<label for="monthSelect">Month</label>-->
+<!--<br>-->
+<!--<select id="monthSelect" onchange="onMonthChange(this.options[this.selectedIndex].value)">-->
+<!--	<option value="01">Januar</option>-->
+<!--	<option value="02">Februar</option>-->
+<!--	<option value="03">März</option>-->
+<!--	<option value="04">April</option>-->
+<!--	<option value="05">Mai</option>-->
+<!--	<option value="06">Juni</option>-->
+<!--	<option value="07">Juli</option>-->
+<!--	<option value="08">August</option>-->
+<!--	<option value="09">September</option>-->
+<!--	<option value="10">Oktober</option>-->
+<!--	<option value="11">November</option>-->
+<!--	<option value="12">Deyember</option>-->
+<!--</select>-->
+
+
+<div id='calendar'>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+    let _year = moment().format('yyyy');
+    let _month = moment().format('MM');
+    let currentDate = `${_year}-${_month}-01`;
+
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev',
+            center: 'title',
+            right: 'next'
+		},
+        initialView: 'dayGridMonth',
+        editable: false,
+        nowIndicator: false,
+        // googleCalendarApiKey: 'AIzaSyD2NKTc2JwFpn1vJ93C638FLt0vyeg-JEA',
+        googleCalendarApiKey: 'AIzaSyAQIAD0J5PYvj6f13VrroZ0vnr7JglFqtM',
+        // 991904617066-6jl1jfs705evkcqlap6v7517vcq7olk5.apps.googleusercontent.com
+
+        eventSources: [
+            {googleCalendarId: 'vr7v7u8disgu85qlelq1s449hqkp7elt@import.calendar.google.com'},
+			{googleCalendarId : "rr1ffbsj861nt8kk5h5larq5pc@group.calendar.google.com"}
+
+        ],
+        eventColor: "#aaaaa7",
+        slotMinTime: "15:15:15",
+        defaultAllDay: true,
+		eventContent: "Belegt",
+        // eventDisplay: 'none',
+        // eventTextColor: 'rgba(255,255,255,255)',
+		firstDay: 1,
+		locale: 'de',
+		aspectRatio: 1,
+		// height: "100%",
+		// width: "100%",
+        showNonCurrentDates: false,
+        eventOrder: "allDay",
+        initialDate: currentDate,
+    });
+    calendar.render();
+
+    // function onMonthChange(month){
+    //     _month = month;
+    //     currentDate = `${_year}-${_month}-01`;
+    //     calendar.gotoDate(currentDate)
+    // }
+    // function onYearChange(year){
+    //     _year = year;
+    //     currentDate = `${_year}-${_month}-01`;
+    //     calendar.gotoDate(currentDate)
+    // }
+	//
+    // let myOption;
+    // makeSelected("monthSelect", _month)
+    // function makeSelected(selectId, value){
+    //     let mySelect = document.getElementById(selectId);
+    //     Array.from(mySelect.options).forEach(function(option_element) {
+    //         let option_value = option_element.value;
+    //         let is_option_selected = option_element.selected;
+    //         if(option_value === value.toString()){
+    //             myOption = option_element;
+    //         }
+    //     });
+    //     myOption.setAttribute("selected", true);
+    // }
+
+
+    // let myTd = document.getElementsByClassName("fc-daygrid-day fc-day fc-day-tue fc-day-past")[0]
+	//
+	// let z = document.getElementsByClassName('fc-daygrid-day-frame fc-scrollgrid-sync-inner')[0];
+
+
+    // let www = document.querySelector(".fc-daygrid-day fc-day fc-day-tue fc-day-past").item(0);
+
+
+
+
+    // let x = document.getElementsByClassName("fc-daygrid-day fc-day fc-day-tue fc-day-past")[0].getElementsByClassName('fc-daygrid-event-harness fc-daygrid-event-harness-abs')[0];
+    //
+    // let z = myTd.contains(x);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

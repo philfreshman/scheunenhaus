@@ -1,0 +1,120 @@
+@use 'layout';
+@use 'sections';
+@use 'utilities/variables'  as var;
+@use 'utilities/mixins' as mixin;
+
+:root {
+  //--swiper-theme-color: #ffffff;
+}
+
+
+
+label::after{
+  content: " *";
+  color: black;
+}
+
+
+html {
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  display: inline-block;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+
+  /*makes text not selectable*/
+  //-webkit-touch-callout: none; /* iOS Safari */
+  //-webkit-user-select: none; /* Safari */
+  //-moz-user-select: none; /* Old versions of Firefox */
+  //-ms-user-select: none; /* Internet Explorer/Edge */
+  //user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+@font-face {
+  font-family: 'AmaticSC';
+  font-style: normal;
+  src: url(../font/amatic-sc.woff2) ;
+  format: 'woff2';
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  src: url(../font/raleway.woff2) ;
+  format: 'woff2';
+}
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../font/raleway-bold.ttf) ;
+  format: 'ttf';
+}
+
+
+.container {
+  height: 100%;
+  width: 100%;
+  top: 96px;
+
+}
+
+.back-img.visible {
+  visibility: visible;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.back-img{
+  visibility: hidden;
+  justify-content: unset;
+  background-size: unset;
+  background-repeat: unset;
+  background-position: unset;
+  //background-image: unset;
+
+}
+
+.gm-style-pbc {
+  opacity: 0 !important;
+}
+
+section {
+  padding: 55px 0 55px 0;
+  scroll-snap-align: start;
+  @include mixin.snap-section;
+  border: 0;
+  height: calc(100% - #{var.$header-height});
+  //width: 100%;
+  background-color: #e6e4e2;
+  z-index: 1;
+}
+
+section:first-of-type{
+  padding-top: 0;
+  height: 100%;
+}
+//section:last-of-type{
+//  padding-bottom: 0px;
+//}
+
+
+
+@include mixin.descriptions;

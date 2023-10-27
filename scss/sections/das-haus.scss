@@ -1,0 +1,145 @@
+@use '../utilities/mixins' as mixin;
+
+#das-haus{
+    @include mixin.grid-template;
+    height: auto;
+    width: auto;
+
+    .visible{
+        visibility: visible;
+    }
+
+    .unvisible{
+        visibility: hidden;
+    }
+}
+
+.grid-container{
+    .text-container{
+        justify-content: center;
+    }
+}
+
+.grid-img{
+    width: 100%;
+    img{
+        height: auto;
+        width: 100%;
+    }
+}
+
+
+#text1{
+    grid-area: 1 / 2 / 2 / 5;
+    height: auto;
+}
+
+#img1 { // haus drausen
+    grid-area: 2 / 2 / 4 / 5;
+    height: 100%;
+    aspect-ratio: 3.2 / 2;
+}
+
+#img2 { // haus drausen klein
+    grid-area: 4 / 4 / 5 / 5;
+    align-self: start;
+
+}
+
+#img3 { // flur kuche
+    grid-area: 4 / 2 / 6 / 3;
+    aspect-ratio: 5/7;
+    align-self: start;
+}
+
+
+
+#img4 { // flur gallerie
+    grid-area: 5 / 4 / 7 / 5;
+    aspect-ratio: 5/7;
+    align-self: center;
+}
+
+#img5 { // couch
+    grid-area: 6 / 2 / 8 / 3;
+    aspect-ratio: 5/7;
+    align-self: end;
+}
+
+#img6 { // wohnraum
+    grid-area: 7 / 4 / 8 / 5;
+    align-self: end;
+}
+
+#text2{
+    grid-area: 8 / 2 / 9 / 5;
+}
+
+//#img7 {
+//    grid-area: 9 / 2 / 11 / 5;
+//}
+
+#img8 { // kuche
+    grid-area: 9 / 2 / 11 / 5;
+}
+
+#img9 { // kindernische
+    grid-area: 11 / 4 / 12 / 5;
+    //grid-area: 12 / 4 / 14 / 5;
+}
+
+#img10 { // bett
+    grid-area: 11 / 2 / 13 / 3;
+    //align-self: start;
+}
+
+#img11 { // stuhl
+        grid-area: 12 / 4 / 14 / 5;
+    //grid-area: 15 / 4 / 17 / 5;
+}
+
+#img12 { // bad
+    grid-area: 13 / 2 / 15 / 3;
+    align-self: start;
+}
+
+#img13{ // schlafboden
+    grid-area: 14 / 4 / 16 / 5;
+    align-self: end;
+}
+
+#img14{ // bild
+    grid-area: 15 / 2 / 16 / 3;
+    align-self: end;
+}
+
+#text3{
+    grid-area: 16 / 2 / 17 / 5;
+}
+
+#img15 {
+    grid-area: 17 / 2 / 19 / 5;
+    align-self: end;
+}
+
+//#img16 {
+//    grid-area: 19 / 2 / 21 / 5;
+//    align-self: start;
+//}
+
+#img17 {
+    grid-area: 19 / 2 / 20 / 3;
+    height: 100%;
+    //ratio: 7,6 / 5
+}
+
+#img18 {
+    grid-area: 19 / 4 / 21 / 5;
+    height: 100%;
+}
+
+#img19 {
+    grid-area: 20 / 2 / 21 / 3;
+    height: 100%;
+    //ratio: 7,6 / 5
+}

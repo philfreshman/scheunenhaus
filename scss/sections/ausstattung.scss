@@ -1,0 +1,22 @@
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as mixin;
+
+
+#ausstattung{
+    height: auto;
+    @include mixin.page-padding;
+}
+
+
+
+#text-left{
+    width: 48%;
+    height: auto;
+}
+
+
+#text-right{
+    //padding-left: 4%;
+    width: 48%;
+    height: auto;
+}
