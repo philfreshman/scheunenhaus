@@ -1,2 +1,3 @@
-Haus
-sass --watch scss/main.scss:css/main.css
+## Homepage for a fancy designers home rental.
+
+[www.scheunenhausamsee.de](https://scheunenhausamsee.de/ "www.scheunenhausamsee.de")
