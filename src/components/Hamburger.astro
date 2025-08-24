@@ -1,0 +1,82 @@
+<style>
+    .hamburger {
+        z-index: 4;
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4px;
+        transition: transform 0.2s ease;
+        will-change: transform;
+
+    }
+
+    .hamburger:hover {
+        transform: scale(1.05);
+    }
+
+    .hamburger__line {
+        width: 29px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-origin: center;
+        will-change: transform;
+        backface-visibility: hidden;
+    }
+
+    .hamburger:hover .hamburger__line {
+        background-color: black;
+    }
+
+
+    .hamburger[aria-expanded="true"] .hamburger__line:nth-child(1) {
+        transform: rotate(45deg) translateX(5px) translateY(5px);
+    }
+
+    .hamburger[aria-expanded="true"] .hamburger__line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .hamburger[aria-expanded="false"] .hamburger__line:nth-child(2) {
+        z-index: -100;
+    }
+
+    .hamburger[aria-expanded="true"] .hamburger__line:nth-child(3) {
+        transform: rotate(-45deg) translateX(5px) translateY(-5px);
+    }
+
+</style>
+
+<button
+    class="hamburger"
+    aria-label="Toggle navigation menu"
+    aria-expanded="false"
+>
+    <span class="hamburger__line"></span>
+    <span class="hamburger__line"></span>
+    <span class="hamburger__line"></span>
+</button>
+
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+
+    if (hamburger) {
+        // Ensure initial state is set
+        hamburger.setAttribute('aria-expanded', 'false');
+
+        hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', (!isExpanded).toString());
+        });
+    }
+</script>

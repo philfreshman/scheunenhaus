@@ -1,0 +1,98 @@
+<style is:global>
+    #calendar {
+        height: 100%;
+        width: 100%;
+        font-family: "Raleway", sans-serif;
+        background: var(--primary-background);
+    }
+
+    .fc-toolbar-title {
+        font-size: 17px;
+    }
+
+    .fc-button-primary {
+        background: unset;
+        border: unset;
+        color: black;
+    }
+
+    .fc-button-primary:hover {
+        background: #e0dedd;
+        color: black;
+    }
+
+    .fc-button-primary:not(:disabled):active {
+        background: #e0dedd;
+        box-shadow: unset;
+        color: black;
+    }
+
+    .fc-button-primary:focus {
+        box-shadow: unset;
+    }
+
+    .fc-daygrid-day.fc-day-today {
+        background: unset;
+        text-decoration: underline;
+    }
+
+    .fc-day-disabled {
+        background: var(--striped-background);
+    }
+</style>
+
+<div id='calendar'/>
+
+<script>
+    import { Calendar } from '@fullcalendar/core';
+    import dayGridPlugin from '@fullcalendar/daygrid';
+    import timeGridPlugin from '@fullcalendar/timegrid';
+    import listPlugin from '@fullcalendar/list';
+    import googleCalendar from '@fullcalendar/google-calendar';
+
+    const calendarEl = document.getElementById('calendar');
+    if(!calendarEl) throw new Error('Could not find calendar element');
+
+    const calendar = new Calendar(calendarEl, {
+        plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, googleCalendar ],
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev',
+            center: 'title',
+            right: 'next'
+        },
+        editable: false,
+        selectable: false,
+        nowIndicator: true,
+        googleCalendarApiKey: import.meta.env.PUBLIC_GOOGLE_CALENDAR_API_KEY,
+        eventSources: [
+            {googleCalendarId: import.meta.env.PUBLIC_GOOGLE_CALENDAR_ID_1},
+            {googleCalendarId: import.meta.env.PUBLIC_GOOGLE_CALENDAR_ID_2}
+        ],
+        eventColor: "#aaaaa7",
+        eventContent: "Belegt",
+        firstDay: 1,
+        locale: 'de',
+        aspectRatio: 1.232,
+        showNonCurrentDates: false,
+        eventOrder: "allDay",
+        // Kills calendar interactivity
+        eventDidMount(info) {
+            const el = info.el;
+            if (el.tagName === 'A') {
+                el.removeAttribute('href');
+                el.removeAttribute('target');
+                el.style.cursor = 'default';
+            } else {
+                const a = el.querySelector('a[href]');
+                if (a instanceof HTMLAnchorElement) {
+                    a.removeAttribute('href');
+                    a.removeAttribute('target');
+                    a.style.cursor = 'default';
+                }
+            }
+        }
+    });
+
+    calendar.render();
+</script>
