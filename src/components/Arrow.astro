@@ -1,0 +1,98 @@
+---
+import arrowPng from "../assets/png/arrow.png?url"
+---
+
+<style>
+    .back-to-top {
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        right: 3.5vw;
+        bottom: 0;
+
+        /* Start hidden and transparent for transition */
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .back-to-top:hover {
+        cursor: pointer;
+    }
+
+    @media (max-width: 1000px) {
+        .back-to-top {
+            right: 3vw;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .back-to-top {
+            right: 1vw;
+        }
+    }
+
+    #arrow {
+        width: 30px;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        right: 0;
+        bottom: 0;
+        transition: transform ease-out 100ms;
+    }
+
+    #arrow.hover {
+        transform: translate(0, -10px);
+    }
+</style>
+
+<div class="back-to-top">
+    <img
+        id="arrow"
+        onclick="{
+            document.documentElement.scrollTop = 0;
+            window.history.pushState({}, '', '/')
+        }"
+        src={arrowPng}
+        alt="arrow"
+    />
+</div>
+
+<script>
+    const TOP = 1000;
+    document.addEventListener('DOMContentLoaded', () => {
+        const backToTopButton = document.querySelector('.back-to-top') as HTMLButtonElement;
+        const arrow = document.getElementById('arrow') as HTMLImageElement;
+
+        const scrollFunction = () => {
+            if (document.body.scrollTop > TOP || document.documentElement.scrollTop > TOP) {
+                // Make visible and opaque
+                backToTopButton.style.visibility = "visible";
+                backToTopButton.style.opacity = "1";
+            } else {
+                // Make transparent
+                backToTopButton.style.opacity = "0";
+                // Hide completely after the transition finishes
+                setTimeout(() => {
+                    backToTopButton.style.visibility = "hidden";
+                }, 300); // This duration should match the CSS transition duration
+            }
+        };
+
+        // Attach the scroll event listener
+        window.onscroll = function() { scrollFunction() };
+        // Call the function once on load in case the page is already scrolled
+        scrollFunction();
+
+
+        // Behaves better for moving elements than using :hover
+        backToTopButton.addEventListener("mouseover", () => {
+            arrow.classList.add('hover')
+        })
+
+        backToTopButton.addEventListener("mouseout", () => {
+            arrow.classList.remove('hover')
+        })
+    });
+</script>
+

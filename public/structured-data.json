@@ -1,0 +1,33 @@
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Scheunenhaus am See",
+    "url": "https://scheunenhausamsee.de",
+    "hasPart": [
+        {
+            "@type": "WebPageElement",
+            "name": "Ausstattung",
+            "url": "https://scheunenhausamsee.de/#ausstattung"
+        },
+        {
+            "@type": "WebPageElement",
+            "name": "Preise",
+            "url": "https://scheunenhausamsee.de/#preise"
+        },
+        {
+            "@type": "WebPageElement",
+            "name": "Belegung",
+            "url": "https://scheunenhausamsee.de/#belegung"
+        },
+        {
+            "@type": "WebPageElement",
+            "name": "Kontakt",
+            "url": "https://scheunenhausamsee.de/#kontakt"
+        },
+        {
+            "@type": "WebPageElement",
+            "name": "Impressum",
+            "url": "https://scheunenhausamsee.de/impressum"
+        }
+    ]
+}

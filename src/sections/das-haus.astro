@@ -1,0 +1,375 @@
+---
+import { Image } from "astro:assets"
+import img1 from "../assets/img/jpg-new/1_haus.jpeg"
+import img2 from "../assets/img/jpg-new/2_garten.jpg"
+import img3 from "../assets/img/jpg-new/3_flur.jpg"
+import img4 from "../assets/img/jpg-new/4_flur.jpg"
+import img5 from "../assets/img/jpg-new/5_kamin.jpg"
+import img6 from "../assets/img/jpg-new/6_wohnraum.jpg"
+import img8 from "../assets/img/jpg-new/8_kuche.jpg"
+import img9 from "../assets/img/jpg-new/9_kindernische.jpg"
+import img10 from "../assets/img/jpg-new/10_bett.jpg"
+import img11 from "../assets/img/jpg-new/11_schtuhl.jpeg"
+import img12 from "../assets/img/jpg-new/12_bad.jpg"
+import img13 from "../assets/img/jpg-new/13_schlafboden.jpg"
+import img14 from "../assets/img/jpg-new/14_bild.jpg"
+import img15 from "../assets/img/jpg-new/15_front1.jpg"
+import img17 from "../assets/img/jpg-new/17_eingang.jpg"
+import img18 from "../assets/img/jpg-new/18_bad.jpeg"
+import img19 from "../assets/img/jpg-new/19_see.jpg"
+import { frontmatter as markdown } from "../content/de/house.md"
+import { SECTIONS } from "../utils/constants"
+---
+<style>
+    .grid-container {
+        background: var(--primary-background);
+    }
+
+    .section-header:first-of-type{
+        display: flex;
+        justify-content: center;
+        height: min-content;
+    }
+    .section-header span{
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    .grid-img {
+        width: 100%;
+    }
+
+    .grid-img img {
+        height: auto;
+        width: 100%;
+    }
+
+    #text1 {
+        grid-area: 1 / 2 / 2 / 5;
+        height: auto;
+    }
+
+    #img1 {
+        /* haus draußen */
+        grid-area: 2 / 2 / 4 / 5;
+        aspect-ratio: 1.6 / 1;
+    }
+    #img2 {
+        /* haus draußen klein */
+        grid-area: 4 / 4 / 5 / 5;
+        aspect-ratio: 1.6 / 1;
+        align-self: start;
+    }
+    #img3 {
+        /* flur Küche */
+        grid-area: 4 / 2 / 6 / 3;
+        aspect-ratio: 5 / 7;
+        align-self: start;
+    }
+    #img4 {
+        /* flur Gallery */
+        grid-area: 5 / 4 / 7 / 5;
+        aspect-ratio: 5 / 7;
+        align-self: center;
+    }
+    #img5 {
+        /* couch */
+        grid-area: 6 / 2 / 8 / 3;
+        aspect-ratio: 5 / 7;
+        align-self: end;
+    }
+    #img6 {
+        /* wohnraum */
+        grid-area: 7 / 4 / 8 / 5;
+        aspect-ratio: 1.6 / 1;
+        align-self: end;
+    }
+    #text2 {
+        grid-area: 8 / 2 / 9 / 5;
+    }
+    #img8 {
+        /* kuche */
+        grid-area: 9 / 2 / 11 / 5;
+        aspect-ratio: 1.6 / 1;
+    }
+    #img9 {
+        /* kindernische */
+        grid-area: 11 / 4 / 12 / 5;
+        aspect-ratio: 1.6 / 1;
+    }
+    #img10 {
+        /* bett */
+        grid-area: 11 / 2 / 13 / 3;
+        aspect-ratio: 5 / 7;
+    }
+    #img11 {
+        /* stuhl */
+        grid-area: 12 / 4 / 14 / 5;
+        aspect-ratio: 5 / 7;
+    }
+    #img12 {
+        /* bad */
+        grid-area: 13 / 2 / 15 / 3;
+        aspect-ratio: 5 / 7;
+        align-self: start;
+    }
+    #img13 {
+        /* schlafboden */
+        grid-area: 14 / 4 / 16 / 5;
+        aspect-ratio: 5 / 7;
+        align-self: end;
+    }
+    #img14 {
+        /* bild */
+        grid-area: 15 / 2 / 16 / 3;
+        aspect-ratio: 1.6 / 1;
+        align-self: end;
+    }
+    #text3 {
+        grid-area: 16 / 2 / 17 / 5;
+    }
+    #img15 {
+        grid-area: 17 / 2 / 19 / 5;
+        aspect-ratio: 1.6 / 1;
+        align-self: end;
+    }
+    #img17 {
+        grid-area: 19 / 2 / 20 / 3;
+        aspect-ratio: 1.518 / 1
+    }
+    #img18 {
+        grid-area: 19 / 4 / 21 / 5;
+        aspect-ratio: 5 / 7;
+    }
+    #img19 {
+        grid-area: 20 / 2 / 21 / 3;
+        aspect-ratio: 1.518 / 1
+    }
+
+    @media (max-width: 729px) {
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: unset;
+            grid-template-rows: unset;
+            grid-row-gap: 25px;
+        }
+    }
+
+    @media (min-width: 730px) and (max-width: 879px) {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1% 47% 4% 47% 1%;
+            grid-template-rows: auto;
+            grid-row-gap: 30px;
+        }
+    }
+
+    @media (min-width: 880px) and (max-width: 1299px) {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 8% 40% 4% 40% 8%;
+            grid-template-rows: auto;
+            grid-row-gap: 40px;
+        }
+    }
+
+    @media (min-width: 1300px) and (max-width: 1649px) {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 12% 36% 4% 36% 12%;
+            grid-template-rows: auto;
+            grid-row-gap: 40px;
+        }
+    }
+
+    @media (min-width: 1650px) {
+        .grid-container {
+            display: grid;
+            grid-template-columns: 14% 34% 4% 34% 14%;
+            grid-template-rows: auto;
+            grid-row-gap: 50px;
+        }
+    }
+</style>
+
+<section id={SECTIONS.house}>
+    <div class="grid-container">
+
+        <div id="text1">
+            <div class="section-header">
+                <h2>
+                    <span>{markdown.title1}</span> <span>{markdown.title2}</span>
+                </h2>
+            </div>
+
+            <div class="section-content">
+                <p set:html={markdown.text1} />
+            </div>
+        </div>
+
+        <div class="grid-img" id="img1">
+            <Image
+                src={img1}
+                alt="House with big window"
+                format="avif"
+                widths={[380, 580, 1000, img1.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img1.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img2">
+            <Image
+                src={img2}
+                alt="Garden view of house"
+                format="avif"
+                widths={[380, 580, 1000, img2.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img2.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img3">
+            <Image
+                src={img3}
+                alt="Hallway to kitchen"
+                format="avif"
+                widths={[380, 580, 1000, img3.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img3.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img4">
+            <Image
+                src={img4}
+                alt="Hallway gallery"
+                format="avif"
+                widths={[380, 580, 1000, img4.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img4.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img5">
+            <Image
+                src={img5}
+                alt="Fireplace and couch area"
+                format="avif"
+                widths={[380, 580, 1000, img5.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img5.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img6">
+            <Image
+                src={img6}
+                alt="Living room"
+                format="avif"
+                widths={[380, 580, 1000, img6.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img6.width}px`}
+            />
+        </div>
+
+        <div class="section-content" id="text2">
+            <p set:html={markdown.text2}/>
+        </div>
+
+        <div class="grid-img" id="img8">
+            <Image
+                src={img8}
+                alt="Kitchen"
+                format="avif"
+                widths={[380, 580, 1000, img8.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img8.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img9">
+            <Image
+                src={img9}
+                alt="Children's nook"
+                format="avif"
+                widths={[380, 580, 1000, img9.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img9.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img10">
+            <Image
+                src={img10}
+                alt="Bedroom"
+                format="avif"
+                widths={[380, 580, 1000, img10.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img10.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img11">
+            <Image
+                src={img11}
+                alt="Chair area"
+                format="avif"
+                widths={[380, 580, 1000, img11.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img11.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img12">
+            <Image
+                src={img12}
+                alt="Bathroom"
+                format="avif"
+                widths={[380, 580, 1000, img12.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img12.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img13">
+            <Image
+                src={img13}
+                alt="Sleeping loft"
+                format="avif"
+                widths={[380, 580, 1000, img13.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img13.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img14">
+            <Image
+                src={img14}
+                alt="Artwork"
+                format="avif"
+                widths={[380, 580, 1000, img14.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img14.width}px`}
+            />
+        </div>
+
+        <div class="section-content" id="text3">
+            <p set:html={markdown.text3}/>
+        </div>
+
+        <div class="grid-img" id="img15">
+            <Image
+                src={img15}
+                alt="Front view of house"
+                format="avif"
+                widths={[380, 580, 1000, img15.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img15.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img17">
+            <Image
+                src={img17}
+                alt="Entrance"
+                format="avif"
+                widths={[380, 580, 1000, img17.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img17.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img18">
+            <Image
+                src={img18}
+                alt="Bathroom detail"
+                format="avif"
+                widths={[380, 580, 1000, img18.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img18.width}px`}
+            />
+        </div>
+        <div class="grid-img" id="img19">
+            <Image
+                src={img19}
+                alt="Lake view"
+                format="avif"
+                widths={[380, 580, 1000, img19.width]}
+                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img19.width}px`}
+            />
+        </div>
+    </div>
+</section>
