@@ -193,10 +193,11 @@ import { SECTIONS } from "../utils/constants"
     }
 </style>
 
+
 <section id={SECTIONS.house}>
     <div class="grid-container">
 
-        <div id="text1">
+        <div id="text1" class="reveal">
             <div class="section-header">
                 <h2>
                     <span>{markdown.title1}</span> <span>{markdown.title2}</span>
@@ -208,167 +209,167 @@ import { SECTIONS } from "../utils/constants"
             </div>
         </div>
 
-        <div class="grid-img" id="img1">
+        <div class="grid-img reveal" id="img1">
             <Image
-                src={img1}
-                alt="House with big window"
-                format="avif"
-                widths={[380, 580, 1000, img1.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img1.width}px`}
+                    src={img1}
+                    alt="House with big window"
+                    format="avif"
+                    widths={[380, 580, 1000, img1.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img1.width}px`}
             />
         </div>
-        <div class="grid-img" id="img2">
+        <div class="grid-img reveal" id="img2" data-delay="20">
             <Image
-                src={img2}
-                alt="Garden view of house"
-                format="avif"
-                widths={[380, 580, 1000, img2.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img2.width}px`}
+                    src={img2}
+                    alt="Garden view of house"
+                    format="avif"
+                    widths={[380, 580, 1000, img2.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img2.width}px`}
             />
         </div>
-        <div class="grid-img" id="img3">
+        <div class="grid-img reveal" id="img3" data-delay="30">
             <Image
-                src={img3}
-                alt="Hallway to kitchen"
-                format="avif"
-                widths={[380, 580, 1000, img3.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img3.width}px`}
+                    src={img3}
+                    alt="Hallway to kitchen"
+                    format="avif"
+                    widths={[380, 580, 1000, img3.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img3.width}px`}
             />
         </div>
-        <div class="grid-img" id="img4">
+        <div class="grid-img reveal" id="img4" data-delay="40">
             <Image
-                src={img4}
-                alt="Hallway gallery"
-                format="avif"
-                widths={[380, 580, 1000, img4.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img4.width}px`}
+                    src={img4}
+                    alt="Hallway gallery"
+                    format="avif"
+                    widths={[380, 580, 1000, img4.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img4.width}px`}
             />
         </div>
-        <div class="grid-img" id="img5">
+        <div class="grid-img reveal" id="img5" data-delay="50">
             <Image
-                src={img5}
-                alt="Fireplace and couch area"
-                format="avif"
-                widths={[380, 580, 1000, img5.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img5.width}px`}
+                    src={img5}
+                    alt="Fireplace and couch area"
+                    format="avif"
+                    widths={[380, 580, 1000, img5.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img5.width}px`}
             />
         </div>
-        <div class="grid-img" id="img6">
+        <div class="grid-img reveal" id="img6" data-delay="60">
             <Image
-                src={img6}
-                alt="Living room"
-                format="avif"
-                widths={[380, 580, 1000, img6.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img6.width}px`}
+                    src={img6}
+                    alt="Living room"
+                    format="avif"
+                    widths={[380, 580, 1000, img6.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img6.width}px`}
             />
         </div>
 
-        <div class="section-content" id="text2">
+        <div class="section-content reveal" id="text2" data-delay="10">
             <p set:html={markdown.text2}/>
         </div>
 
-        <div class="grid-img" id="img8">
+        <div class="grid-img reveal" id="img8" data-delay="20">
             <Image
-                src={img8}
-                alt="Kitchen"
-                format="avif"
-                widths={[380, 580, 1000, img8.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img8.width}px`}
+                    src={img8}
+                    alt="Kitchen"
+                    format="avif"
+                    widths={[380, 580, 1000, img8.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img8.width}px`}
             />
         </div>
-        <div class="grid-img" id="img9">
+        <div class="grid-img reveal" id="img9" data-delay="30">
             <Image
-                src={img9}
-                alt="Children's nook"
-                format="avif"
-                widths={[380, 580, 1000, img9.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img9.width}px`}
+                    src={img9}
+                    alt="Children's nook"
+                    format="avif"
+                    widths={[380, 580, 1000, img9.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img9.width}px`}
             />
         </div>
-        <div class="grid-img" id="img10">
+        <div class="grid-img reveal" id="img10" data-delay="40">
             <Image
-                src={img10}
-                alt="Bedroom"
-                format="avif"
-                widths={[380, 580, 1000, img10.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img10.width}px`}
+                    src={img10}
+                    alt="Bedroom"
+                    format="avif"
+                    widths={[380, 580, 1000, img10.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img10.width}px`}
             />
         </div>
-        <div class="grid-img" id="img11">
+        <div class="grid-img reveal" id="img11" data-delay="50">
             <Image
-                src={img11}
-                alt="Chair area"
-                format="avif"
-                widths={[380, 580, 1000, img11.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img11.width}px`}
+                    src={img11}
+                    alt="Chair area"
+                    format="avif"
+                    widths={[380, 580, 1000, img11.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img11.width}px`}
             />
         </div>
-        <div class="grid-img" id="img12">
+        <div class="grid-img reveal" id="img12" data-delay="60">
             <Image
-                src={img12}
-                alt="Bathroom"
-                format="avif"
-                widths={[380, 580, 1000, img12.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img12.width}px`}
+                    src={img12}
+                    alt="Bathroom"
+                    format="avif"
+                    widths={[380, 580, 1000, img12.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img12.width}px`}
             />
         </div>
-        <div class="grid-img" id="img13">
+        <div class="grid-img reveal" id="img13" data-delay="70">
             <Image
-                src={img13}
-                alt="Sleeping loft"
-                format="avif"
-                widths={[380, 580, 1000, img13.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img13.width}px`}
+                    src={img13}
+                    alt="Sleeping loft"
+                    format="avif"
+                    widths={[380, 580, 1000, img13.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img13.width}px`}
             />
         </div>
-        <div class="grid-img" id="img14">
+        <div class="grid-img reveal" id="img14" data-delay="80">
             <Image
-                src={img14}
-                alt="Artwork"
-                format="avif"
-                widths={[380, 580, 1000, img14.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img14.width}px`}
+                    src={img14}
+                    alt="Artwork"
+                    format="avif"
+                    widths={[380, 580, 1000, img14.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img14.width}px`}
             />
         </div>
 
-        <div class="section-content" id="text3">
+        <div class="section-content reveal" id="text3" data-delay="10">
             <p set:html={markdown.text3}/>
         </div>
 
-        <div class="grid-img" id="img15">
+        <div class="grid-img reveal" id="img15" data-delay="20">
             <Image
-                src={img15}
-                alt="Front view of house"
-                format="avif"
-                widths={[380, 580, 1000, img15.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img15.width}px`}
+                    src={img15}
+                    alt="Front view of house"
+                    format="avif"
+                    widths={[380, 580, 1000, img15.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img15.width}px`}
             />
         </div>
-        <div class="grid-img" id="img17">
+        <div class="grid-img reveal" id="img17" data-delay="30">
             <Image
-                src={img17}
-                alt="Entrance"
-                format="avif"
-                widths={[380, 580, 1000, img17.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img17.width}px`}
+                    src={img17}
+                    alt="Entrance"
+                    format="avif"
+                    widths={[380, 580, 1000, img17.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img17.width}px`}
             />
         </div>
-        <div class="grid-img" id="img18">
+        <div class="grid-img reveal" id="img18" data-delay="40">
             <Image
-                src={img18}
-                alt="Bathroom detail"
-                format="avif"
-                widths={[380, 580, 1000, img18.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img18.width}px`}
+                    src={img18}
+                    alt="Bathroom detail"
+                    format="avif"
+                    widths={[380, 580, 1000, img18.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img18.width}px`}
             />
         </div>
-        <div class="grid-img" id="img19">
+        <div class="grid-img reveal" id="img19" data-delay="50">
             <Image
-                src={img19}
-                alt="Lake view"
-                format="avif"
-                widths={[380, 580, 1000, img19.width]}
-                sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img19.width}px`}
+                    src={img19}
+                    alt="Lake view"
+                    format="avif"
+                    widths={[380, 580, 1000, img19.width]}
+                    sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img19.width}px`}
             />
         </div>
     </div>
