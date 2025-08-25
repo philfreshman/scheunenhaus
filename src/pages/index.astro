@@ -34,7 +34,9 @@ import Preise from "../sections/preise.astro"
 <script>
     import { initEventHandlers } from '../events/events'
     import { useIntersections } from '../utils/useIntersections'
+    import { useAnimations } from "../utils/useAnimations";
 
     initEventHandlers()
     useIntersections()
+    useAnimations()
 </script>
