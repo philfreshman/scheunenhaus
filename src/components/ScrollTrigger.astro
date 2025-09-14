@@ -1,0 +1,21 @@
+<style>
+    #scrollTrigger {
+        position: absolute;
+        height: 55px;
+        width: 100%;
+        left: 0;
+    }
+</style>
+
+<div id="scrollTrigger" />
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const scrollTrigger = document.getElementById('scrollTrigger');
+        if (scrollTrigger) {
+            scrollTrigger.addEventListener('mouseenter', () => {
+                window.scrollTo(0, document.body.scrollHeight)
+            });
+        }
+    });
+</script>
