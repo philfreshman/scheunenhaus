@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets"
+
+// Import your images
+import berkerImg from "../assets/png/footer/1_berker.png"
+import dornbrachtImg from "../assets/png/footer/2_dornbracht.png"
+import rathscheckImg from "../assets/png/footer/3_ratthscheck.png"
+import keimImg from "../assets/png/footer/4_keim.png"
+import claytecImg from "../assets/png/footer/5_claytec.png"
+import cramerImg from "../assets/png/footer/6_cramer.png"
+import kalfireImg from "../assets/png/footer/7_kalfire.png"
+import oblikImg from "../assets/png/footer/8_oblik.png"
+import prostoriaImg from "../assets/png/footer/9_prostoria.png"
+---
+
+<style>
+    footer {
+        height: auto;
+        z-index: -10;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        padding: 60px 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @media (min-width: 1px) and (max-width: 599px) {
+        footer {
+            padding-left: 1%;
+            padding-right: 1%;
+            width: auto;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 879px) {
+        footer {
+            padding-left: 1%;
+            padding-right: 1%;
+            width: auto;
+        }
+    }
+    @media (min-width: 880px) and (max-width: 1299px) {
+        footer {
+            padding-left: 8%;
+            padding-right: 8%;
+            width: auto;
+        }
+    }
+    @media (min-width: 1300px) and (max-width: 1649px) {
+        footer {
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+    }
+    @media (min-width: 1650px) {
+        footer {
+            padding-left: 14%;
+            padding-right: 14%;
+            width: auto;
+        }
+    }
+    footer * {
+        width: 100%;
+    }
+    .icons-wrap {
+        margin: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    .icons-wrap a {
+        height: 35px;
+        width: auto;
+        margin: 25px;
+        display: flex;
+        align-items: center;
+    }
+    .footer-bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    .impressum {
+        display: flex;
+        width: auto;
+    }
+    @media (max-width: 449px) {
+        .impressum {
+            flex-direction: column;
+        }
+        .impressum a {
+            text-align: end;
+        }
+    }
+    @media (min-width: 450px) {
+        .impressum {
+            flex-direction: row;
+        }
+    }
+    footer a {
+        text-decoration: none;
+        color: black;
+        align-self: flex-end;
+        margin-left: 3vw;
+        font-family: "Raleway", sans-serif;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+    }
+    footer a:hover {
+        font-weight: 1000;
+    }
+    #copyright {
+        margin-left: 0;
+    }
+    #copyright:hover {
+        font-family: "Raleway", sans-serif;
+    }
+    #partner {
+        font-weight: 1000;
+    }
+    #prostoria {
+        height: 30px;
+    }
+</style>
+
+<footer>
+    <a id="partner">PARTNER</a>
+    <div class="icons-wrap">
+        <a href="https://www.berker.com">
+            <Image
+                src={berkerImg}
+                alt="berker"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.dornbracht.com/de">
+            <Image
+                src={dornbrachtImg}
+                alt="dornbracht"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.rathscheck.de">
+            <Image
+                src={rathscheckImg}
+                alt="rathscheck"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.keim.com/de-de">
+            <Image
+                src={keimImg}
+                alt="keim"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.claytec.de/">
+            <Image
+                src={claytecImg}
+                alt="claytec"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.cramer-moebel.de/">
+            <Image
+                src={cramerImg}
+                alt="cramer"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://kalfire.com/de">
+            <Image
+                src={kalfireImg}
+                alt="kalfire"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://oblik.berlin/de">
+            <Image
+                src={oblikImg}
+                alt="oblik"
+                height={35}
+                format="avif"
+                loading="lazy"
+            />
+        </a>
+        <a href="https://www.prostoria.eu/de/">
+            <Image
+                src={prostoriaImg}
+                alt="prostoria"
+                height={30}
+                format="avif"
+                loading="lazy"
+                id="prostoria"
+            />
+        </a>
+    </div>
+    <div class="footer-bottom">
+        <a id="copyright">COPYRIGHT © 2025 SCHEUNENHAUS AM SEE</a>
+        <div class="impressum">
+            <a href="./impressum.html">IMPRESSUM</a>
+            <a href="./datenschutz.html">DATENSCHUTZ</a>
+        </div>
+    </div>
+</footer>
