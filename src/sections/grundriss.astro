@@ -1,0 +1,95 @@
+---
+import grundrissImgUrl from "../assets/img/Grundriss.png?url"
+import { frontmatter as markdown } from "../content/de/floorPlan.md"
+import { SECTIONS } from "../utils/constants"
+---
+<style>
+    #grundriss {
+        height: auto;
+        flex-direction: column;
+    }
+
+    #grundriss-container img {
+        aspect-ratio: 1368 / 1242;
+    }
+
+    @media (min-width: 1px) and (max-width: 599px) {
+        #grundriss {
+            padding-left: 1%;
+            padding-right: 1%;
+            width: auto;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 879px) {
+        #grundriss {
+            padding-left: 1%;
+            padding-right: 1%;
+            width: auto;
+        }
+    }
+    @media (min-width: 880px) and (max-width: 1299px) {
+        #grundriss {
+            padding-left: 8%;
+            padding-right: 8%;
+            width: auto;
+        }
+    }
+    @media (min-width: 1300px) and (max-width: 1649px) {
+        #grundriss {
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+    }
+    @media (min-width: 1650px) {
+        #grundriss {
+            padding-left: 14%;
+            padding-right: 14%;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        #grundriss-bild {
+            width: 98%;
+        }
+    }
+    @media (min-width: 1000px) {
+        #grundriss-bild {
+            width: 75%;
+        }
+    }
+
+    @media (max-width: 1179px) {
+        .position-container {
+            position: unset;
+        }
+        .position-container p {
+            position: unset;
+        }
+    }
+    @media (min-width: 1180px) {
+        .position-container {
+        }
+        .position-container p {
+            position: absolute;
+        }
+    }
+</style>
+
+<section id={SECTIONS.floorPlan}>
+
+    <div class="section-header">
+        <h4 set:html={markdown.header} />
+    </div>
+
+    <div class="section-content" id="grundriss-container">
+        <img
+            id="grundriss-bild"
+            src={grundrissImgUrl}
+            alt="grundriss-bild"
+            fetchpriority="auto"
+            decoding="async"
+        />
+    </div>
+
+</section>

@@ -1,0 +1,76 @@
+
+/*                */
+/*     section    */
+/*                */
+section {
+    height: auto;
+    background: var(--primary-background);
+    padding: 55px 0 55px 0;
+    scroll-margin-top: -30px;
+}
+
+section:first-of-type {
+    padding: 0;
+}
+
+@media (min-width: var(--breakpoint-xl)) {
+    section {
+        scroll-margin-top: 30px;
+    }
+}
+
+/*                      */
+/*    section-header    */
+/*                      */
+.section-header {
+    height: 25px;
+}
+
+/*    "Ökologisches Ferienhaus"    */
+.section-header h2 {
+    font-size: 1.7rem;
+    margin: 25px 0 25px 0;
+    line-height: 2.7rem;
+    padding: 0;
+}
+
+/*    All other section headers    */
+.section-header h4 {
+    font-weight: 1000;
+    font-size: 0.8em;
+    letter-spacing: 2px;
+}
+
+@media (min-width: var(--breakpoint-md)) and (max-width: var(--breakpoint-lg)) {
+    .section-header {
+        padding: 0 1vw 0 3vw;
+    }
+}
+
+/*                       */
+/*    section-content    */
+/*                       */
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-content p {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+@media (min-width: var(--breakpoint-lg)) {
+    .section-content {
+        padding: 0;
+    }
+}
+
+@media (min-width: var(--breakpoint-md)) and (max-width: var(--breakpoint-lg)) {
+    .section-content h4 {
+        width: unset;
+    }
+}

@@ -1,0 +1,42 @@
+ ---
+import Arrow from "../components/Arrow.astro"
+import Layout from "../layouts/Layout.astro"
+import Ausstattung from "../sections/ausstattung.astro"
+import Belegung from "../sections/belegung.astro"
+import DasHaus from "../sections/das-haus.astro"
+import Footer from "../sections/footer.astro"
+import Grundriss from "../sections/grundriss.astro"
+import Hero from "../sections/hero.astro"
+import Kontakt from "../sections/kontakt.astro"
+import Preise from "../sections/preise.astro"
+ ---
+
+<style>
+    main{
+        height: 100%;
+    }
+</style>
+
+<Layout>
+    <main>
+        <Hero />
+        <DasHaus />
+        <Ausstattung />
+        <Grundriss />
+        <Preise />
+        <Belegung />
+        <Kontakt />
+        <Footer />
+        <Arrow />
+    </main>
+</Layout>
+
+<script>
+    import { initEventHandlers } from '../events/events'
+    import { useIntersections } from '../utils/useIntersections'
+    import { useAnimations } from "../utils/useAnimations";
+
+    initEventHandlers()
+    useIntersections()
+    useAnimations()
+</script>

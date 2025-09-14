@@ -1,0 +1,77 @@
+<style>
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+
+    .iframe-container {
+        width: 100%;
+        position: relative;
+        background: var(--striped-background);
+
+    }
+    @media (max-width: 1000px) {
+        .iframe-container {
+            height: 60vh;
+        }
+    }
+    @media (min-width: 1000px) {
+        .iframe-container {
+            height: 65vh;
+        }
+    }
+
+    #google-map {
+        width: 100%;
+        height: 100%; /* Make iframe fill the wrapper */
+        border: 0; /* Keep border style here */
+    }
+
+    .map-loading-fallback {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0e0e0; /* Darker background for the fallback */
+        color: #333;
+        font-size: 1.2em;
+        z-index: 2; /* Make sure it's above the iframe initially */
+    }
+
+</style>
+
+
+<div class="iframe-container">
+    <iframe
+        style="border: 0"
+        loading="lazy"
+        allowfullscreen
+        onloadstart="console.log('start')"
+        onload="console.log('GoogleMaps loaded')"
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:EiNTZWV3ZWcgMywgMTcyOTEgVWNrZXJmZWxkZSwgR2VybWFueSJQEk4KNAoyCTXVwl9qiqlHEZMUhvsIWa27Gh4LEO7B7qEBGhQKEgnlOnn1hCeqRxHQ9T-VSSAhHAwQAyoUChIJZ5zgf2mKqUcRDGzFfiTVX4U&key=AIzaSyACpmDMn5ef34cMmPzvXgotWLVGt6y6BMI"
+    />
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const iframe = document.getElementById('google-map');
+        const fallback = document.querySelector('.map-loading-fallback');
+
+        if (iframe && fallback) {
+            // Initially hide the iframe until it loads
+            iframe.style.display = 'none';
+
+            iframe.onload = () => {
+                // When iframe loads, hide fallback and show iframe
+                // fallback.style.display = 'none';
+                // iframe.style.display = 'block';
+            };
+        }
+    });
+</script>
