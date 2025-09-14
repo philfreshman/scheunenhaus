@@ -10,8 +10,8 @@ import Hamburger from "./Hamburger.astro"
 
     #sideMenu {
         z-index: 3;
-        width: 215px;
-        height: 400px;
+        width: 170px;
+        padding: 68px 16px 16px;
         border-bottom-left-radius: 10px;
         position: fixed;
         top: 0;
@@ -21,22 +21,67 @@ import Hamburger from "./Hamburger.astro"
         background: var(--primary-background);
         transform-origin: 0 -20px;
         transform: translate(100%, 0);
-        transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        box-sizing: border-box;
         box-shadow: 1px 1px 6px 6px #6666661a;
+    }
+
+    @media (min-width: 350px) {
+        #sideMenu {
+            width: 170px;
+            padding: 68px 16px 16px;
+        }
+    }
+
+    @media (min-width: 380px) {
+        #sideMenu {
+            width: 170px;
+            padding: 72px 18px 18px;
+        }
+    }
+
+    @media (min-width: 580px) {
+        #sideMenu {
+            width: 180px;
+            padding: 76px 20px 20px;
+        }
+    }
+
+    @media (min-width: 745px) {
+        #sideMenu {
+            width: 190px;
+            padding: 80px 22px 22px;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        #sideMenu {
+            width: 200px;
+            padding: 84px 24px 24px;
+        }
+    }
+
+    #sideMenuContainer.open #sideMenu {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    #sideMenuContainer.open #sideMenu {
+        animation: menu-bounce 520ms ease-out;
     }
 
     #links {
         display: flex;
         flex-direction: column;
+        gap: 22px;
         list-style-type: none;
         -webkit-font-smoothing: antialiased;
     }
 
     .link {
-        margin: 8px 0;
-        padding: 3px 0;
         font-family: 'Raleway', serif;
         font-size: 16px;
+        width: fit-content;
     }
 
     @media screen and (min-width: 1000px) {
@@ -48,54 +93,51 @@ import Hamburger from "./Hamburger.astro"
 </style>
 
 <div id="sideMenuContainer">
-    <Hamburger/>
+  <Hamburger/>
 
-    <div id="sideMenu">
-        <div style="position: absolute; bottom: 0; margin-bottom: 26px; margin-left: 26px;">
-            <div id="links" style="margin-bottom: 5px">
-                <a class="link" href=`#${SECTIONS.house}`>DAS HAUS</a>
-                <a class="link" href=`#${SECTIONS.furnishing}`>AUSSTATTUNG</a>
-                <a class="link" href=`#${SECTIONS.floorPlan}`>GRUNDRISS</a>
-                <a class="link" href=`#${SECTIONS.price}`>PREISE</a>
-                <a class="link" href=`#${SECTIONS.occupancy}`>BELEGUNG</a>
-                <a class="link" href=`#${SECTIONS.contact}`>KONTAKT</a>
-            </div>
-
-            <div id="icons" style="display: flex; flex-direction: row">
-                <a
-                    aria-label="facebook-link"
-                    href="https://www.facebook.com/Scheunenhaus-am-See-423332671778636"
-                    target="_blank"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                    >
-                        <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615z" />
-                    </svg>
-                </a>
-
-                <a
-                    aria-label="instagram-link"
-                    href="https://www.instagram.com/das_scheunenhaus/"
-                    target="_blank"
-                    style="margin-left: 2vw"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                    ><path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.012 3.584-.069 4.849c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.013-3.583.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881"
-                    ></path></svg
-                    >
-                </a>
-            </div>
-        </div>
-    </div>
+  <div id="sideMenu">
+      <div id="links">
+        <a class="link" href=`#${SECTIONS.house}`>DAS HAUS</a>
+        <a class="link" href=`#${SECTIONS.furnishing}`>AUSSTATTUNG</a>
+        <a class="link" href=`#${SECTIONS.floorPlan}`>GRUNDRISS</a>
+        <a class="link" href=`#${SECTIONS.price}`>PREISE</a>
+        <a class="link" href=`#${SECTIONS.occupancy}`>BELEGUNG</a>
+        <a class="link" href=`#${SECTIONS.contact}`>KONTAKT</a>
+        <span class="socials" style="display: flex; flex-direction: row; gap: 20px">
+          <a
+              aria-label="instagram-link"
+              href="https://www.instagram.com/das_scheunenhaus/"
+              target="_blank"
+              style="height: 20px"
+          >
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+              ><path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.012 3.584-.069 4.849c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.013-3.583.07-4.849c.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8m6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881"
+              ></path></svg
+              >
+          </a>
+          <a
+              aria-label="facebook-link"
+              href="https://www.facebook.com/Scheunenhaus-am-See-423332671778636"
+              target="_blank"
+              style="height: 20px"
+          >
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+              >
+                  <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615z" />
+              </svg>
+          </a>
+        </span>
+      </div>
+  </div>
 </div>
 
 
