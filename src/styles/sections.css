@@ -24,6 +24,7 @@ section:first-of-type {
 /*                      */
 .section-header {
     height: 25px;
+    padding-bottom: 10px;
 }
 
 /*    "Ökologisches Ferienhaus"    */
