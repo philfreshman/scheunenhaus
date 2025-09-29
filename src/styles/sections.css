@@ -13,7 +13,7 @@ section:first-of-type {
     padding: 0;
 }
 
-@media (min-width: var(--breakpoint-xl)) {
+@media (min-width: 1000px) {
     section {
         scroll-margin-top: 30px;
     }
@@ -41,7 +41,7 @@ section:first-of-type {
     letter-spacing: 2px;
 }
 
-@media (min-width: var(--breakpoint-md)) and (max-width: var(--breakpoint-lg)) {
+@media (min-width: 580px) and (max-width: 745px) {
     .section-header {
         padding: 0 1vw 0 3vw;
     }
@@ -63,13 +63,13 @@ section:first-of-type {
     line-height: 2;
 }
 
-@media (min-width: var(--breakpoint-lg)) {
+@media (min-width: 745px) {
     .section-content {
         padding: 0;
     }
 }
 
-@media (min-width: var(--breakpoint-md)) and (max-width: var(--breakpoint-lg)) {
+@media (min-width: 580px) and (max-width: 745px) {
     .section-content h4 {
         width: unset;
     }
