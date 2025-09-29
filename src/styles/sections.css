@@ -36,7 +36,7 @@ section:first-of-type {
 
 /*    All other section headers    */
 .section-header h4 {
-    font-weight: 1000;
+    -webkit-text-stroke: 0.5px currentColor;
     font-size: 0.8em;
     letter-spacing: 2px;
 }
