@@ -1,11 +1,18 @@
 :root {
     --primary-background: #e6e4e2;
     --secondary-background: white;
-    --striped-background: repeating-linear-gradient(
-        -45deg,
-        #e0dedd /* White stripe color */,
-        #e0dedd 5px /* White stripe width */,
-        transparent 5px /* Transparent start for gap */,
-        transparent 10px /* Transparent end for gap (total stripe + gap width) */
+    --animated-striped-background: repeating-linear-gradient(
+            -45deg,
+            #cccbc9 /* Stripe color */,
+            #e0dedd 5px /* Stripe width */,
+            transparent 5px /* Transparent start for gap */,
+            transparent 13px /* Transparent end for gap (total stripe + gap width) */
+    );
+    --static-striped-background: repeating-linear-gradient(
+            -45deg,
+            #cccbc9 /* Stripe color */,
+            #e0dedd 5px /* Stripe width */,
+            transparent 5px /* Transparent start for gap */,
+            transparent 10px /* Transparent end for gap (total stripe + gap width) */
     );
 }

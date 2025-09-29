@@ -3,6 +3,7 @@ import GoogleMaps from "../components/GoogleMaps.astro"
 import ScrollTrigger from "../components/ScrollTrigger.astro"
 import { frontmatter as markdown } from "../content/de/contact.md"
 import { SECTIONS } from "../utils/constants"
+import LoadingStripes from "../components/LoadingStripes.astro"
 ---
 
 <style>
@@ -14,7 +15,7 @@ import { SECTIONS } from "../utils/constants"
         box-shadow: 0 22px 23px -10px #d1d1d1;
         margin-bottom: 13px;
     }
-    @media (min-width: 1px) and (max-width: 599px) {
+    @media (max-width: 599px) {
         #contact {
             padding-left: 1%;
             padding-right: 1%;
