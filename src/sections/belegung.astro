@@ -1,14 +1,12 @@
 ---
 import Calendar from "../components/Calendar.astro"
+import LoadingStripes from "../components/LoadingStripes.astro"
 import { frontmatter as markdown } from "../content/de/occupancy.md"
 import { SECTIONS } from "../utils/constants"
 ---
 
 
 <style>
-    #belegung{
-    }
-
     .calendar-ratio {
         aspect-ratio: 1.232;
     }
@@ -17,25 +15,10 @@ import { SECTIONS } from "../utils/constants"
         width: 100%; /* Ensure width is 100% to fill parent */
         height: auto; /* Let height be determined by aspect-ratio and max-height */
         aspect-ratio: 1.232; /* Maintain the desired aspect ratio */
-
         margin-top: 10px;
-
-        background: var(--striped-background);
-        animation: stripe-move-down 1s linear infinite;
     }
 
-    /* Define the keyframes for the animation */
-    @keyframes stripe-move-down {
-        from {
-            background-position-x: 0; /* Start at the top */
-        }
-        to {
-            background-position-x: 29px; /* Move down by the height of one stripe pattern */
-        }
-    }
-
-
-    @media (min-width: 1px) and (max-width: 599px) {
+    @media (max-width: 599px) {
         #belegung {
             padding-left: 1%;
             padding-right: 1%;
@@ -65,18 +48,17 @@ import { SECTIONS } from "../utils/constants"
             padding-right: 14%;
         }
     }
-
-
 </style>
 
 <section id={SECTIONS.occupancy}>
-
     <div class="section-header">
         <h4 set:html={markdown.header} />
     </div>
-
-    <div class="section-content calendar-container">
-        <Calendar/>
+    <div class="section-content">
+        <div class="calendar-container">
+            <LoadingStripes id="calendar-stripes">
+                <Calendar/>
+            </LoadingStripes>
+        </div>
     </div>
-
 </section>

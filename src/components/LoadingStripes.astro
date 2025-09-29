@@ -1,0 +1,28 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props
+---
+
+<style>
+    @keyframes stripe-move {
+        from { background-position-x: 0; }
+        to   { background-position-x: 37px; }
+    }
+
+    .loading-stripes-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .loading-stripes-animation {
+        background: var(--animated-striped-background);
+        animation: stripe-move 750ms linear infinite;
+        will-change: background-position;
+    }
+</style>
+
+<div id={id} class="loading-stripes-container loading-stripes-animation">
+    <slot />
+</div>
