@@ -1,3 +1,10 @@
+---
+import LoadingStripes from "./LoadingStripes.astro"
+
+const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID;
+---
+
 <style>
     iframe {
         height: 100%;
@@ -7,8 +14,6 @@
     .iframe-container {
         width: 100%;
         position: relative;
-        background: var(--striped-background);
-
     }
     @media (max-width: 1000px) {
         .iframe-container {
@@ -45,33 +50,17 @@
 </style>
 
 
-<div class="iframe-container">
-    <iframe
-        style="border: 0"
-        loading="lazy"
-        allowfullscreen
-        onloadstart="console.log('start')"
-        onload="console.log('GoogleMaps loaded')"
-        src="https://www.google.com/maps/embed/v1/place?q=place_id:EiNTZWV3ZWcgMywgMTcyOTEgVWNrZXJmZWxkZSwgR2VybWFueSJQEk4KNAoyCTXVwl9qiqlHEZMUhvsIWa27Gh4LEO7B7qEBGhQKEgnlOnn1hCeqRxHQ9T-VSSAhHAwQAyoUChIJZ5zgf2mKqUcRDGzFfiTVX4U&key=AIzaSyACpmDMn5ef34cMmPzvXgotWLVGt6y6BMI"
-    />
-</div>
+<LoadingStripes id="maps-stripes">
+    <div class="iframe-container">
+        <iframe
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+            src={`https://www.google.com/maps/embed/v1/place?q=place_id:${GOOGLE_MAPS_PLACE_ID}&key=${GOOGLE_MAPS_API_KEY}`}
+            onload="(() => {
+                document.getElementById('maps-stripes')?.classList.remove('loading-stripes-animation');
+            })()"
+        />
+    </div>
+</LoadingStripes>
 
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const iframe = document.getElementById('google-map');
-        const fallback = document.querySelector('.map-loading-fallback');
-
-        if (iframe && fallback) {
-            // Initially hide the iframe until it loads
-            iframe.style.display = 'none';
-
-            iframe.onload = () => {
-                // When iframe loads, hide fallback and show iframe
-                // fallback.style.display = 'none';
-                // iframe.style.display = 'block';
-            };
-        }
-    });
-</script>
