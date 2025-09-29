@@ -1,5 +1,9 @@
 ---
 import LoadingStripes from "./LoadingStripes.astro"
+
+const GOOGLE_MAPS_API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_PLACE_ID = import.meta.env.GOOGLE_MAPS_PLACE_ID;
+---
 ---
 <style>
     iframe {
@@ -52,7 +56,7 @@ import LoadingStripes from "./LoadingStripes.astro"
             style="border: 0"
             loading="lazy"
             allowfullscreen
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:EiNTZWV3ZWcgMywgMTcyOTEgVWNrZXJmZWxkZSwgR2VybWFueSJQEk4KNAoyCTXVwl9qiqlHEZMUhvsIWa27Gh4LEO7B7qEBGhQKEgnlOnn1hCeqRxHQ9T-VSSAhHAwQAyoUChIJZ5zgf2mKqUcRDGzFfiTVX4U&key=AIzaSyACpmDMn5ef34cMmPzvXgotWLVGt6y6BMI"
+            src={`https://www.google.com/maps/embed/v1/place?q=place_id:${GOOGLE_MAPS_PLACE_ID}&key=${GOOGLE_MAPS_API_KEY}`}
             onload="(() => {
                 document.getElementById('maps-stripes')?.classList.remove('loading-stripes-animation');
             })()"
