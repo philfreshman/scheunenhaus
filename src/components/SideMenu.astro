@@ -3,11 +3,6 @@ import { SECTIONS } from "../utils/constants"
 import Hamburger from "./Hamburger.astro"
 ---
 <style>
-    #sideMenuContainer.open #sideMenu {
-        transform: none;
-        opacity: 1;
-    }
-
     #sideMenu {
         z-index: 3;
         width: 170px;
@@ -24,13 +19,6 @@ import Hamburger from "./Hamburger.astro"
         transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         box-sizing: border-box;
         box-shadow: 1px 1px 6px 6px #6666661a;
-    }
-
-    @media (min-width: 350px) {
-        #sideMenu {
-            width: 170px;
-            padding: 68px 16px 16px;
-        }
     }
 
     @media (min-width: 380px) {
@@ -63,11 +51,8 @@ import Hamburger from "./Hamburger.astro"
 
     #sideMenuContainer.open #sideMenu {
         transform: translate(0, 0) scale(1);
-        opacity: 1;
-    }
-
-    #sideMenuContainer.open #sideMenu {
         animation: menu-bounce 520ms ease-out;
+        opacity: 1;
     }
 
     #links {
