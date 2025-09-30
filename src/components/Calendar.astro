@@ -6,6 +6,18 @@
         background: var(--primary-background);
     }
 
+    .hidden{
+        visibility: hidden;
+    }
+
+    .fc {
+        gap: 1em;
+    }
+
+    .fc-header-toolbar {
+        height: 38px;
+    }
+
     .fc-toolbar-title {
         font-size: 17px;
     }
@@ -37,7 +49,7 @@
     }
 
     .fc-day-disabled {
-        background: var(--static-striped-background);
+        background: var(--striped-background);
         box-shadow: inset 0 0 0 2px rgba(230, 228, 226, 0.5);
     }
 
@@ -73,7 +85,7 @@
     }
 </style>
 
-<div id='calendar'/>
+<div id='calendar' class="hidden"/>
 
 <script>
     import { Calendar } from '@fullcalendar/core';
@@ -105,7 +117,7 @@
         eventContent: "Belegt",
         firstDay: 1,
         locale: 'de',
-        aspectRatio: 1.232,
+        aspectRatio: 1.5,
         showNonCurrentDates: false,
         eventOrder: "allDay",
         // Kills calendar interactivity
@@ -129,6 +141,7 @@
               const container = calendarEl.closest('#calendar-stripes');
               if (container) {
                   container.classList.remove('loading-stripes-animation');
+                  calendarEl.classList.remove('hidden')
               }
           }
       }
