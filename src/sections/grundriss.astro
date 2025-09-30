@@ -1,9 +1,11 @@
 ---
 import grundrissImgUrl from "../assets/img/Grundriss.png?url"
+import Section from "../components/Section.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/floorPlan.md"
 import { SECTIONS } from "../utils/constants"
 ---
-<style>
+<style is:global>
     #grundriss {
         height: auto;
         flex-direction: column;
@@ -76,11 +78,11 @@ import { SECTIONS } from "../utils/constants"
     }
 </style>
 
-<section id={SECTIONS.floorPlan}>
+<Section id={SECTIONS.floorPlan}>
 
-    <div class="section-header">
+    <SectionHeader position="left">
         <h4 set:html={markdown.header} />
-    </div>
+    </SectionHeader>
 
     <div class="section-content" id="grundriss-container">
         <img
@@ -92,4 +94,4 @@ import { SECTIONS } from "../utils/constants"
         />
     </div>
 
-</section>
+</Section>

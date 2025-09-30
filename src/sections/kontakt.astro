@@ -1,12 +1,14 @@
 ---
 import GoogleMaps from "../components/GoogleMaps.astro"
 import ScrollTrigger from "../components/ScrollTrigger.astro"
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/contact.md"
 import { SECTIONS } from "../utils/constants"
-import LoadingStripes from "../components/LoadingStripes.astro"
 ---
 
-<style>
+<style is:global>
     #contact {
         height: auto;
         /* offset-x | offset-y | blur-radius | spread-radius | color */
@@ -15,6 +17,11 @@ import LoadingStripes from "../components/LoadingStripes.astro"
         box-shadow: 0 22px 23px -10px #d1d1d1;
         margin-bottom: 13px;
     }
+
+    .pb-0 {
+        padding-bottom: 0;
+    }
+
     @media (max-width: 599px) {
         #contact {
             padding-left: 1%;
@@ -58,16 +65,16 @@ import LoadingStripes from "../components/LoadingStripes.astro"
 </style>
 
 
-<section id={SECTIONS.contact}>
-    <div class="section-header">
+<Section id={SECTIONS.contact} className="pb-0">
+    <SectionHeader position="left">
         <h4 set:html={markdown.header} />
-    </div>
-    <div class="section-content">
+    </SectionHeader>
+    <SectionContent type="wide" >
         <p set:html={markdown.content} />
         <GoogleMaps />
-    </div>
+    </SectionContent>
     <ScrollTrigger />
-</section>
+</Section>
 
 
 

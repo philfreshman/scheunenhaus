@@ -17,22 +17,17 @@ import img15 from "../assets/img/jpg-new/15_front1.jpg"
 import img17 from "../assets/img/jpg-new/17_eingang.jpg"
 import img18 from "../assets/img/jpg-new/18_bad.jpeg"
 import img19 from "../assets/img/jpg-new/19_see.jpg"
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/house.md"
 import { SECTIONS } from "../utils/constants"
 ---
-<style>
+
+<style is:global>
+
     .grid-container {
         background: var(--primary-background);
-    }
-
-    .section-header:first-of-type{
-        display: flex;
-        justify-content: center;
-        height: min-content;
-    }
-    .section-header span{
-        white-space: nowrap;
-        display: inline-block;
     }
 
     .grid-img {
@@ -48,7 +43,6 @@ import { SECTIONS } from "../utils/constants"
         grid-area: 1 / 2 / 2 / 5;
         height: auto;
     }
-
     #img1 {
         /* haus draußen */
         grid-area: 2 / 2 / 4 / 5;
@@ -194,20 +188,20 @@ import { SECTIONS } from "../utils/constants"
 </style>
 
 
-<section id={SECTIONS.house}>
-    <div class="grid-container">
+<Section id={SECTIONS.house}>
+    <SectionContent className="grid-container">
 
-        <div id="text1" class="reveal">
-            <div class="section-header">
+        <SectionContent id="text1" className="reveal" type="wide">
+            <SectionHeader position="center">
                 <h2>
                     <span>{markdown.title1}</span> <span>{markdown.title2}</span>
                 </h2>
-            </div>
+            </SectionHeader>
 
-            <div class="section-content">
+            <SectionContent type="wide">
                 <p set:html={markdown.text1} />
-            </div>
-        </div>
+            </SectionContent>
+        </SectionContent>
 
         <div class="grid-img reveal" id="img1">
             <Image
@@ -372,5 +366,5 @@ import { SECTIONS } from "../utils/constants"
                     sizes={`(max-width: 380px) 380px, (max-width: 580px) 580px, (max-width: 1000px) 1000px, ${img19.width}px`}
             />
         </div>
-    </div>
-</section>
+    </SectionContent>
+</Section>

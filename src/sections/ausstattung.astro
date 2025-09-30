@@ -1,8 +1,11 @@
 ---
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/furnishing.md"
 import { SECTIONS } from "../utils/constants"
 ---
-<style>
+<style is:global>
     @media (max-width: 599px) {
         #ausstattung {
             padding-left: 1%;
@@ -35,11 +38,11 @@ import { SECTIONS } from "../utils/constants"
     }
 </style>
 
-<section id={SECTIONS.furnishing}>
-    <div class="section-header">
+<Section id={SECTIONS.furnishing}>
+    <SectionHeader className="section-header" position="left">
         <h4 set:html={markdown.header} />
-    </div>
-    <div class="section-content">
+    </SectionHeader>
+    <SectionContent type="wide">
         <p set:html={markdown.content} />
-    </div>
-</section>
+    </SectionContent>
+</Section>
