@@ -1,0 +1,94 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  type?: 'wide' | 'narrow'
+}
+const { id, className, type } = Astro.props
+
+const classes = ['section-content'];
+if (className) classes.push(className);
+if (type) classes.push(type);
+---
+
+<style is:global>
+    .section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-content p {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+        line-height: 2;
+    }
+
+    @media (min-width: 580px) and (max-width: 745px) {
+        .section-content h4 {
+            width: unset;
+        }
+    }
+
+    @media (max-width: 599px) {
+        .section-content.wide{
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .section-content.narrow{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 879px) {
+        .section-content.wide {
+            padding-left: 1%;
+            padding-right: 1%;
+        }
+
+        .section-content.narrow{
+            padding-left: 1%;
+            padding-right: 1%;
+        }
+    }
+    @media (min-width: 880px) and (max-width: 1299px) {
+        .section-content.wide {
+            padding-left: 8%;
+            padding-right: 8%;
+        }
+
+        .section-content.narrow{
+            padding-left: 8%;
+            padding-right: 8%;
+        }
+    }
+    @media (min-width: 1300px) and (max-width: 1649px) {
+        .section-content.wide {
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+
+        .section-content.narrow{
+            padding-left: 12%;
+            padding-right: 12%;
+        }
+    }
+    @media (min-width: 1650px) {
+        .section-content.wide {
+            padding-left: 14%;
+            padding-right: 14%;
+        }
+
+        .section-content.narrow{
+            padding-left: 14%;
+            padding-right: 14%;
+        }
+    }
+</style>
+
+
+<div id={id} class={classes.join(' ')}>
+    <slot/>
+</div>

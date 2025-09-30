@@ -1,12 +1,15 @@
 ---
 import Calendar from "../components/Calendar.astro"
 import LoadingStripes from "../components/LoadingStripes.astro"
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/occupancy.md"
 import { SECTIONS } from "../utils/constants"
 ---
 
 
-<style>
+<style is:global>
     .calendar-ratio {
         aspect-ratio: 1.5;
     }
@@ -50,15 +53,15 @@ import { SECTIONS } from "../utils/constants"
     }
 </style>
 
-<section id={SECTIONS.occupancy}>
-    <div class="section-header">
+<Section id={SECTIONS.occupancy}>
+    <SectionHeader position="left">
         <h4 set:html={markdown.header} />
-    </div>
-    <div class="section-content">
+    </SectionHeader>
+    <SectionContent type="narrow">
         <div class="calendar-container">
             <LoadingStripes id="calendar-stripes">
                 <Calendar/>
             </LoadingStripes>
         </div>
-    </div>
-</section>
+    </SectionContent>
+</Section>

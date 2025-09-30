@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets"
 import heroImg from "../assets/img/Startbild.webp"
+import Section from "../components/Section.astro"
 import { SECTIONS } from "../utils/constants"
 ---
-<style>
+<style is:global>
     #hero {
         height: 100%;
     }
@@ -94,7 +95,7 @@ import { SECTIONS } from "../utils/constants"
         }
     }
 </style>
-<section id={SECTIONS.hero}>
+<Section id={SECTIONS.hero}>
     <div id="heading">
         <h1 class="hero-title">
             <span>SCHEUNENHAUS</span>
@@ -114,4 +115,4 @@ import { SECTIONS } from "../utils/constants"
         fetchpriority="high"
         onload="document.body.classList.remove('hidden')"
     />
-</section>
+</Section>
