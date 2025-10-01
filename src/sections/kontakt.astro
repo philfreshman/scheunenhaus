@@ -22,7 +22,7 @@ import { SECTIONS } from "../utils/constants"
         padding-bottom: 0;
     }
 
-    #contact .section-content p{
+    #contact-paragraph{
         margin-bottom: 4vh;
     }
     #contact a:link {
@@ -38,7 +38,7 @@ import { SECTIONS } from "../utils/constants"
     <SectionHeader position="left">
         <h4 set:html={markdown.header} />
     </SectionHeader>
-    <SectionContent type="wide">
+    <SectionContent id="contact-paragraph" type="wide">
         <p set:html={markdown.content} />
     </SectionContent>
     <SectionContent type="narrow" >
