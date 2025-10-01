@@ -47,9 +47,10 @@ const { isSubpage } = Astro.props
         <link rel="manifest" href="/site.webmanifest" />
     </head>
     <body id="root" class={!isSubpage ? "hidden" : ""}>
-        {!isSubpage && <Header /> <SideMenu />}
-        <main>
+    <!--<body id="root">-->
+        <!--{!isSubpage && <Header /> <SideMenu />}-->
+        <!--<main>-->
             <slot />
-        </main>
+        <!--</main>-->
     </body>
 </html>
