@@ -1,78 +1,18 @@
 ---
 import grundrissImgUrl from "../assets/img/Grundriss.png?url"
 import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
 import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/floorPlan.md"
 import { SECTIONS } from "../utils/constants"
-import SectionContent from "../components/SectionContent.astro"
 ---
-<style is:global>
-    #grundriss {
-        height: auto;
-        flex-direction: column;
-    }
 
+<style is:global>
     #grundriss-container img {
+        width: 100%;
         aspect-ratio: 1368 / 1242;
     }
 
-    @media (max-width: 599px) {
-        #grundriss {
-            padding-left: 1%;
-            padding-right: 1%;
-        }
-    }
-    @media (min-width: 600px) and (max-width: 879px) {
-        #grundriss {
-            padding-left: 1%;
-            padding-right: 1%;
-        }
-    }
-    @media (min-width: 880px) and (max-width: 1299px) {
-        #grundriss {
-            padding-left: 8%;
-            padding-right: 8%;
-        }
-    }
-    @media (min-width: 1300px) and (max-width: 1649px) {
-        #grundriss {
-            padding-left: 12%;
-            padding-right: 12%;
-        }
-    }
-    @media (min-width: 1650px) {
-        #grundriss {
-            padding-left: 14%;
-            padding-right: 14%;
-        }
-    }
-
-    @media (max-width: 1000px) {
-        #grundriss-bild {
-            width: 98%;
-        }
-    }
-    @media (min-width: 1000px) {
-        #grundriss-bild {
-            width: 75%;
-        }
-    }
-
-    @media (max-width: 1179px) {
-        .position-container {
-            position: unset;
-        }
-        .position-container p {
-            position: unset;
-        }
-    }
-    @media (min-width: 1180px) {
-        .position-container {
-        }
-        .position-container p {
-            position: absolute;
-        }
-    }
 </style>
 
 <Section id={SECTIONS.floorPlan}>
