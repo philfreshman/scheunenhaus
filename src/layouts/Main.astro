@@ -48,6 +48,8 @@ const { isSubpage } = Astro.props
     </head>
     <body id="root" class={!isSubpage ? "hidden" : ""}>
         {!isSubpage && <Header /> <SideMenu />}
-        <slot />
+        <main>
+            <slot />
+        </main>
     </body>
 </html>
