@@ -4,6 +4,7 @@ import Section from "../components/Section.astro"
 import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/floorPlan.md"
 import { SECTIONS } from "../utils/constants"
+import SectionContent from "../components/SectionContent.astro"
 ---
 <style is:global>
     #grundriss {
@@ -19,21 +20,18 @@ import { SECTIONS } from "../utils/constants"
         #grundriss {
             padding-left: 1%;
             padding-right: 1%;
-            width: auto;
         }
     }
     @media (min-width: 600px) and (max-width: 879px) {
         #grundriss {
             padding-left: 1%;
             padding-right: 1%;
-            width: auto;
         }
     }
     @media (min-width: 880px) and (max-width: 1299px) {
         #grundriss {
             padding-left: 8%;
             padding-right: 8%;
-            width: auto;
         }
     }
     @media (min-width: 1300px) and (max-width: 1649px) {
@@ -46,7 +44,6 @@ import { SECTIONS } from "../utils/constants"
         #grundriss {
             padding-left: 14%;
             padding-right: 14%;
-            width: auto;
         }
     }
 
@@ -84,7 +81,7 @@ import { SECTIONS } from "../utils/constants"
         <h4 set:html={markdown.header} />
     </SectionHeader>
 
-    <div class="section-content" id="grundriss-container">
+    <SectionContent id="grundriss-container" type="narrow">
         <img
             id="grundriss-bild"
             src={grundrissImgUrl}
@@ -92,6 +89,6 @@ import { SECTIONS } from "../utils/constants"
             fetchpriority="auto"
             decoding="async"
         />
-    </div>
+    </SectionContent>
 
 </Section>

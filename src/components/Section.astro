@@ -5,14 +5,17 @@ interface Props {
 }
 const { id, className } = Astro.props
 
-const classes = ['section-content'];
+const classes: string[] = [];
 if (className) classes.push(className);
 ---
 
 <style is:global>
     section {
+        width: auto;
         height: auto;
-        background: var(--primary-background);
+        //background: var(--primary-background);
+        background: dodgerblue;
+        border-bottom: 1px solid black;
         padding: 55px 0 55px 0;
         scroll-margin-top: -30px;
     }

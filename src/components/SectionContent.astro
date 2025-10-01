@@ -2,7 +2,7 @@
 interface Props {
   id?: string;
   className?: string;
-  type?: 'wide' | 'narrow'
+  type: 'wide' | 'narrow'
 }
 const { id, className, type } = Astro.props
 
@@ -13,9 +13,18 @@ if (type) classes.push(type);
 
 <style is:global>
     .section-content {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .section-content.wide {
+        background: aquamarine;
+    }
+
+    .section-content.narrow {
+        background: cadetblue;
     }
 
     .section-content p {
@@ -23,8 +32,10 @@ if (type) classes.push(type);
         padding: 0;
         margin: 0;
         line-height: 2;
+        text-box: auto;
     }
 
+    /*
     @media (min-width: 580px) and (max-width: 745px) {
         .section-content h4 {
             width: unset;
@@ -49,8 +60,8 @@ if (type) classes.push(type);
         }
 
         .section-content.narrow{
-            padding-left: 1%;
-            padding-right: 1%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     @media (min-width: 880px) and (max-width: 1299px) {
@@ -60,8 +71,8 @@ if (type) classes.push(type);
         }
 
         .section-content.narrow{
-            padding-left: 8%;
-            padding-right: 8%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     @media (min-width: 1300px) and (max-width: 1649px) {
@@ -71,8 +82,8 @@ if (type) classes.push(type);
         }
 
         .section-content.narrow{
-            padding-left: 12%;
-            padding-right: 12%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
     @media (min-width: 1650px) {
@@ -82,10 +93,11 @@ if (type) classes.push(type);
         }
 
         .section-content.narrow{
-            padding-left: 14%;
-            padding-right: 14%;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
+     */
 </style>
 
 

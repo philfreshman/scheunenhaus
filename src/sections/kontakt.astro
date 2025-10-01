@@ -69,8 +69,10 @@ import { SECTIONS } from "../utils/constants"
     <SectionHeader position="left">
         <h4 set:html={markdown.header} />
     </SectionHeader>
-    <SectionContent type="wide" >
+    <SectionContent type="wide">
         <p set:html={markdown.content} />
+    </SectionContent>
+    <SectionContent type="narrow" >
         <GoogleMaps />
     </SectionContent>
     <ScrollTrigger />
