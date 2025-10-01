@@ -69,21 +69,6 @@ h4 {
 }
 
 /*         */
-/*    p    */
-/*         */
-@media (min-width: 580px) {
-    p {
-        width: unset;
-    }
-}
-
-@media (min-width: 745px) {
-    p {
-        width: 670px;
-    }
-}
-
-/*         */
 /*    a    */
 /*         */
 a {
@@ -100,11 +85,4 @@ a:hover {
 .active-link {
     font-weight: 1000;
     -webkit-text-stroke: 0.5px currentColor;
-}
-
-/*                */
-/*    textarea    */
-/*                */
-textarea {
-    font-weight: 1000;
 }
