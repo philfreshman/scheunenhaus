@@ -49,16 +49,5 @@ const { isSubpage } = Astro.props
     <body id="root" class={!isSubpage ? "hidden" : ""}>
         {!isSubpage && <Header /> <SideMenu />}
         <slot />
-        <!--<script>-->
-        <!--    if ('serviceWorker' in navigator) {-->
-        <!--        navigator.serviceWorker.register('/sw.js')-->
-        <!--            .then((registration) => {-->
-        <!--                console.log('SW registered: ', registration);-->
-        <!--            })-->
-        <!--            .catch((registrationError) => {-->
-        <!--                console.log('SW registration failed: ', registrationError);-->
-        <!--            });-->
-        <!--    }-->
-        <!--</script>-->
     </body>
 </html>
