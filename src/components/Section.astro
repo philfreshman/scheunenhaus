@@ -1,22 +1,24 @@
 ---
 interface Props {
-  id?: string;
-  className?: string;
+    id?: string
+    className?: string
 }
 const { id, className } = Astro.props
 
-const classes: string[] = [];
-if (className) classes.push(className);
+const classes: string[] = []
+if (className) classes.push(className)
 ---
 
 <style is:global>
     section {
+        background: mediumslateblue;
+        background: var(--primary-background);
         width: auto;
         height: auto;
-        background: dodgerblue;
-        border-bottom: 1px solid black;
         padding: 55px 0 55px 0;
         scroll-margin-top: -30px;
+        display: flex;
+        flex-direction: column;
     }
 
     section:first-of-type {

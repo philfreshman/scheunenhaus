@@ -55,8 +55,8 @@ import { SECTIONS } from "../utils/constants"
 
     .hero-title {
         /* Responsive base */
-        font-size: 1.8rem;
-        letter-spacing: 13px;
+        font-size: 2.2rem;
+        letter-spacing: 0.3em;
 
         font-family: 'AmaticSC', sans-serif;
         font-weight: bold;
@@ -74,15 +74,21 @@ import { SECTIONS } from "../utils/constants"
         animation-delay: 0.2s; /* starts after a short delay */
     }
 
+    @media (min-width: 440px) {
+        .hero-title {
+            font-size: 2.4rem;
+        }
+    }
+
     @media (min-width: 640px) {
         .hero-title {
-            font-size: 2.1rem;
+            font-size: 2.6rem;
         }
     }
 
     @media (min-width: 768px) {
         .hero-title {
-            font-size: 2.9rem;
+            font-size: 2.8rem;
         }
     }
 

@@ -11,9 +11,11 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.furnishing}>
     <SectionHeader className="section-header" position="left">
-        <h4 set:html={markdown.header} />
+        <a href=`#${SECTIONS.furnishing}`>
+            <h3 set:html={markdown.header} />
+        </a>
     </SectionHeader>
-    <SectionContent type="wide">
+    <SectionContent type="text">
         <p set:html={markdown.content} />
     </SectionContent>
 </Section>

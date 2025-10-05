@@ -11,24 +11,20 @@ import { SECTIONS } from "../utils/constants"
 <style is:global>
     #contact {
         height: auto;
-        /* offset-x | offset-y | blur-radius | spread-radius | color */
-        -webkit-box-shadow: 0 22px 23px -10px #d1d1d1;
-        -moz-box-shadow: 0 22px 23px -10px #d1d1d1;
+        /* horizontal bottom shadow */
         box-shadow: 0 22px 23px -10px #d1d1d1;
-        margin-bottom: 13px;
     }
 
     .pb-0 {
         padding-bottom: 0;
     }
 
-    #contact-paragraph{
+    #contact-info{
         margin-bottom: 4vh;
     }
     #contact a:link {
         text-decoration: none;
         color: black;
-        padding-bottom: 4vh !important;
     }
 
 </style>
@@ -36,12 +32,14 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.contact} className="pb-0">
     <SectionHeader position="left">
-        <h4 set:html={markdown.header} />
+        <a href=`#${SECTIONS.contact}`>
+            <h3 set:html={markdown.header} />
+        </a>
     </SectionHeader>
-    <SectionContent id="contact-paragraph" type="wide">
+    <SectionContent id="contact-info" type="text">
         <p set:html={markdown.content} />
     </SectionContent>
-    <SectionContent type="narrow" >
+    <SectionContent type="media" className="box-shadow">
         <GoogleMaps />
     </SectionContent>
     <ScrollTrigger />

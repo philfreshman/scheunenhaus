@@ -10,23 +10,20 @@ import { SECTIONS } from "../utils/constants"
 
 
 <style is:global>
-    .calendar-ratio {
-        aspect-ratio: 1.5;
-    }
-
     .calendar-container {
         width: 100%; /* Ensure width is 100% to fill parent */
         height: auto; /* Let height be determined by aspect-ratio and max-height */
-        aspect-ratio: 1.232; /* Maintain the desired aspect ratio */
     }
 
 </style>
 
 <Section id={SECTIONS.occupancy}>
     <SectionHeader position="left">
-        <h4 set:html={markdown.header} />
+        <a href=`#${SECTIONS.occupancy}`>
+            <h3 set:html={markdown.header} />
+        </a>
     </SectionHeader>
-    <SectionContent type="narrow">
+    <SectionContent type="media" className="box-shadow">
         <div class="calendar-container">
             <LoadingStripes id="calendar-stripes">
                 <Calendar/>
