@@ -9,6 +9,7 @@ export const initEventHandlers = () => {
         const { detail } = event as HeaderEvents
         const section = detail.sectionName
 
+        console.log("section", section)
         const links = document.querySelectorAll(".link") as NodeListOf<HTMLAnchorElement>
         links.forEach((link) => {
             const id = link.getAttribute("href")?.replace("#", "")

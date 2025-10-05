@@ -1,0 +1,41 @@
+---
+interface Props {
+    title?: string
+}
+
+const { title = "Scheunenhaus am See" } = Astro.props
+---
+
+<head>
+    <title>{title}</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="application/ld+json" src="/structured-data.json" is:inline/>
+
+    <link rel="preload" href="/fonts/amatic-sc.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/raleway.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+        @font-face {
+            font-family: 'AmaticSC';
+            src: url('/fonts/amatic-sc.woff2') format('woff2');
+            font-display: block;
+        }
+        @font-face {
+            font-family: 'Raleway';
+            src: url('/fonts/raleway.woff2') format('woff2');
+            font-display: block;
+        }
+    </style>
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+</head>

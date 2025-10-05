@@ -1,6 +1,6 @@
 ---
-title1: 'Ökologisches Ferienhaus'
-title2: 'für 10 Gäste'
+title1: 'Ökologisches&nbspFerienhaus '
+title2: 'für&nbsp10&nbspGäste'
 text1: |
     Umgeben von uckermärkischer Dorfidylle und in fußläufiger Nähe zum Badesee
     befindet&nbsp;sich&nbsp;das&nbsp;Scheunenhaus. Hier sagen sich noch Fuchs und Hase gute

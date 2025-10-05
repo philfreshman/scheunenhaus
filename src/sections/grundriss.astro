@@ -10,7 +10,7 @@ import { SECTIONS } from "../utils/constants"
 <style is:global>
     #grundriss-container img {
         width: 100%;
-        aspect-ratio: 1368 / 1242;
+        aspect-ratio: 1;
     }
 
 </style>
@@ -18,10 +18,12 @@ import { SECTIONS } from "../utils/constants"
 <Section id={SECTIONS.floorPlan}>
 
     <SectionHeader position="left">
-        <h4 set:html={markdown.header} />
+        <a href=`#${SECTIONS.floorPlan}`>
+            <h3 set:html={markdown.header} />
+        </a>
     </SectionHeader>
 
-    <SectionContent id="grundriss-container" type="narrow">
+    <SectionContent id="grundriss-container" type="media" className="box-shadow">
         <img
             id="grundriss-bild"
             src={grundrissImgUrl}

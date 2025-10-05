@@ -1,8 +1,8 @@
 ---
 import LoadingStripes from "./LoadingStripes.astro"
 
-const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
-const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID;
+const GOOGLE_MAPS_API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY
+const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID
 ---
 
 <style>
@@ -13,7 +13,11 @@ const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID;
 
     .iframe-container {
         width: 100%;
+        height: 48vh;
         position: relative;
+
+        @media (min-width: 1000px) {
+        }
     }
 
     #google-map {

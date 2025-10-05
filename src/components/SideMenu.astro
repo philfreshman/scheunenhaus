@@ -167,6 +167,13 @@ import Hamburger from "./Hamburger.astro"
             }
         });
 
+        // --- Close menu on ESC key when open ---
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && sideMenuContainer.classList.contains('open')) {
+                sideMenuContainer.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
     });
 </script>
 
