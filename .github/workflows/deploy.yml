@@ -1,4 +1,38 @@
-name: deploy.yml
+
+name: Deploy to FTP
+
 on:
+    push:
+        branches:
+            - main  # Change this to your default branch if different
+    workflow_dispatch:  # Allows manual triggering
 
 jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'  # Adjust to your preferred Node version
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build Astro site
+              run: npm run build
+
+            - name: Deploy to FTP
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+              with:
+                  server: ${{ secrets.FTP_HOST }}
+                  username: ${{ secrets.FTP_USER }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  local-dir: ./dist/
+                  server-dir: /scheunenhausamsee.de/
+                  dangerous-clean-slate: false
