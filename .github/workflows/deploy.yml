@@ -68,8 +68,11 @@ jobs:
             - name: Build Astro site
               run: npm run build
               env:
-                  PUBLIC_FULLCALENDAR_KEY: ${{ secrets.PUBLIC_FULLCALENDAR_KEY }}
-                  PUBLIC_GOOGLE_MAPS_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_KEY }}
+                  PUBLIC_GOOGLE_CALENDAR_API_KEY: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_API_KEY }}
+                  PUBLIC_GOOGLE_CALENDAR_ID_1: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_1 }}
+                  PUBLIC_GOOGLE_CALENDAR_ID_2: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_2 }}
+                  PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_API_KEY }}
+                  PUBLIC_GOOGLE_MAPS_PLACE_ID: ${{ secrets.PUBLIC_GOOGLE_MAPS_PLACE_ID }}
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
