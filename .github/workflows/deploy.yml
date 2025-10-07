@@ -45,6 +45,10 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   local-dir: ./dist/
                   server-dir: /scheunenhausamsee.de/
+                  timeout: 300000
+                  log-level: verbose
+              env:
+                  FTP_TIMEOUT: 300000
     deploy-development:
         if: github.ref_name == 'development'
         runs-on: ubuntu-latest
@@ -81,3 +85,7 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   local-dir: ./dist/
                   server-dir: /development.scheunenhausamsee.de/
+                  timeout: 300000
+                  log-level: verbose
+              env:
+                  FTP_TIMEOUT: 300000
