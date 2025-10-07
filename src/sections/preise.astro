@@ -1,48 +1,22 @@
 ---
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { SECTIONS } from "../utils/constants"
 ---
-<style>
-    #preise {
-    }
-    @media (min-width: 1px) and (max-width: 599px) {
-        #preise {
-            padding-left: 1%;
-            padding-right: 1%;
-        }
-    }
-    @media (min-width: 600px) and (max-width: 879px) {
-        #preise {
-            padding-left: 1%;
-            padding-right: 1%;
-        }
-    }
-    @media (min-width: 880px) and (max-width: 1299px) {
-        #preise {
-            padding-left: 8%;
-            padding-right: 8%;
-        }
-    }
-    @media (min-width: 1300px) and (max-width: 1649px) {
-        #preise {
-            padding-left: 12%;
-            padding-right: 12%;
-        }
-    }
-    @media (min-width: 1650px) {
-        #preise {
-            padding-left: 14%;
-            padding-right: 14%;
-        }
-    }
+<style is:global>
+
 </style>
 
-<section id={SECTIONS.price}>
+<Section id={SECTIONS.price}>
 
-    <div class="section-header">
-        <h4>PREISE</h4>
-    </div>
+    <SectionHeader position="left">
+        <a href=`#${SECTIONS.price}`>
+            <h3>PREISE</h3>
+        </a>
+    </SectionHeader>
 
-    <div class="section-content">
+    <SectionContent type="text">
         <p>
             Übernachtung ausserhalb der Ferien, Jan-April und Okt-Dez<br />
             Mindestbuchung von 2 Nächten<br />
@@ -68,6 +42,6 @@ import { SECTIONS } from "../utils/constants"
             <br /><br />
             Bei gewerblicher Nutzung gelten andere Preise. Bitte kontaktieren Sie uns gern dazu.
         </p>
-    </div>
+    </SectionContent>
 
-</section>
+</Section>

@@ -5,6 +5,4 @@
     --breakpoint-md: 580px;  /* Start of md range */
     --breakpoint-lg: 745px;  /* Start of lg range */
     --breakpoint-xl: 1000px;
-    --breakpoint-xxl: 1300px;
-    --breakpoint-xxxl: 1500px;
 }

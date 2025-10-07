@@ -2,8 +2,8 @@
     .hamburger {
         z-index: 4;
         position: fixed;
-        top: 24px;
-        right: 24px;
+        top: 18px;
+        right: 18px;
         border: none;
         background: transparent;
         cursor: pointer;
@@ -14,8 +14,43 @@
         gap: 4px;
         transition: transform 0.2s ease;
         will-change: transform;
-
     }
+
+    @media (min-width: 350px) {
+        .hamburger {
+            top: 18px;
+            right: 18px;
+        }
+    }
+
+    @media (min-width: 380px) {
+        .hamburger {
+            top: 16px;
+            right: 16px;
+        }
+    }
+
+    @media (min-width: 580px) {
+        .hamburger {
+            top: 18px;
+            right: 18px;
+        }
+    }
+
+    @media (min-width: 745px) {
+        .hamburger {
+            top: 20px;
+            right: 20px;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .hamburger {
+            top: 22px;
+            right: 22px;
+        }
+    }
+
 
     .hamburger:hover {
         transform: scale(1.05);

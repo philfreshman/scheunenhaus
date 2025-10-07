@@ -1,6 +1,6 @@
  ---
 import Arrow from "../components/Arrow.astro"
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Main.astro"
 import Ausstattung from "../sections/ausstattung.astro"
 import Belegung from "../sections/belegung.astro"
 import DasHaus from "../sections/das-haus.astro"
@@ -10,25 +10,16 @@ import Hero from "../sections/hero.astro"
 import Kontakt from "../sections/kontakt.astro"
 import Preise from "../sections/preise.astro"
  ---
-
-<style>
-    main{
-        height: 100%;
-    }
-</style>
-
 <Layout>
-    <main>
-        <Hero />
-        <DasHaus />
-        <Ausstattung />
-        <Grundriss />
-        <Preise />
-        <Belegung />
-        <Kontakt />
-        <Footer />
-        <Arrow />
-    </main>
+    <Hero />
+    <DasHaus />
+    <Ausstattung />
+    <Grundriss />
+    <Preise />
+    <Belegung />
+    <Kontakt />
+    <Footer />
+    <Arrow />
 </Layout>
 
 <script>
