@@ -5,7 +5,6 @@ on:
             - main
             - development
     workflow_dispatch:
-
 jobs:
     deploy-production:
         if: github.ref_name == 'main'
@@ -25,6 +24,12 @@ jobs:
               run: npm ci --prefer-offline
             - name: Build Astro site
               run: npm run build
+              env:
+                  PUBLIC_GOOGLE_CALENDAR_API_KEY: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_API_KEY }}
+                  PUBLIC_GOOGLE_CALENDAR_ID_1: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_1 }}
+                  PUBLIC_GOOGLE_CALENDAR_ID_2: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_2 }}
+                  PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_API_KEY }}
+                  PUBLIC_GOOGLE_MAPS_PLACE_ID: ${{ secrets.PUBLIC_GOOGLE_MAPS_PLACE_ID }}
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
@@ -40,7 +45,6 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   local-dir: ./dist/
                   server-dir: /scheunenhausamsee.de/
-
     deploy-development:
         if: github.ref_name == 'development'
         runs-on: ubuntu-latest
@@ -59,6 +63,9 @@ jobs:
               run: npm ci --prefer-offline
             - name: Build Astro site
               run: npm run build
+              env:
+                  PUBLIC_FULLCALENDAR_KEY: ${{ secrets.PUBLIC_FULLCALENDAR_KEY }}
+                  PUBLIC_GOOGLE_MAPS_KEY: ${{ secrets.PUBLIC_GOOGLE_MAPS_KEY }}
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
