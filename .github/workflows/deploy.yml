@@ -1,23 +1,19 @@
 name: Deploy to FTP
-
 on:
     push:
         branches:
             - main
-    workflow_dispatch: # Manual trigger
+            - development
+    workflow_dispatch:
 
 jobs:
-    build-and-deploy:
+    deploy-production:
+        if: github.ref_name == 'main'
         runs-on: ubuntu-latest
         environment: Production
-        container:
-            image: node:22-alpine # ✅ lightweight runtime (~50 MB)
-
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
-
-            # ✅ Efficient npm cache
             - name: Cache npm modules
               uses: actions/cache@v4
               with:
@@ -25,14 +21,10 @@ jobs:
                   key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-npm-
-
             - name: Install dependencies
               run: npm ci --prefer-offline
-
             - name: Build Astro site
               run: npm run build
-
-            # ✅ Safety check before deploy
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
@@ -40,7 +32,6 @@ jobs:
                     exit 1
                   fi
                   echo "✅ Build output verified."
-
             - name: Deploy to FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.3.5
               with:
@@ -49,3 +40,37 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   local-dir: ./dist/
                   server-dir: /scheunenhausamsee.de/
+
+    deploy-development:
+        if: github.ref_name == 'development'
+        runs-on: ubuntu-latest
+        environment: Development
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Cache npm modules
+              uses: actions/cache@v4
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
+            - name: Install dependencies
+              run: npm ci --prefer-offline
+            - name: Build Astro site
+              run: npm run build
+            - name: Verify build output
+              run: |
+                  if [ ! -d "dist" ]; then
+                    echo "❌ dist/ folder not found! Build may have failed."
+                    exit 1
+                  fi
+                  echo "✅ Build output verified."
+            - name: Deploy to FTP
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+              with:
+                  server: ${{ secrets.FTP_HOST }}
+                  username: ${{ secrets.FTP_USER }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  local-dir: ./dist/
+                  server-dir: /development/scheunenhausamsee.de/
