@@ -1,11 +1,12 @@
 :root {
+    --media-box-shadow:  0px 0px 20px 8px rgba(208, 208, 208, 0.20);
     --primary-background: #e6e4e2;
     --secondary-background: white;
     --striped-background: repeating-linear-gradient(
-        -45deg,
-        #e0dedd /* White stripe color */,
-        #e0dedd 5px /* White stripe width */,
-        transparent 5px /* Transparent start for gap */,
-        transparent 10px /* Transparent end for gap (total stripe + gap width) */
+            -45deg,
+            #cccbc9 /* Stripe color */,
+            #e0dedd 0.3rem /* Stripe width */,
+            transparent 0.3rem /* Transparent start for gap */,
+            transparent 0.6rem /* Transparent end for gap (total stripe + gap width) */
     );
 }

@@ -1,0 +1,38 @@
+---
+interface Props {
+    id?: string
+    className?: string
+}
+const { id, className } = Astro.props
+
+const classes: string[] = []
+if (className) classes.push(className)
+---
+
+<style is:global>
+    section {
+        background: var(--primary-background);
+        width: auto;
+        height: auto;
+        padding: 55px 0 55px 0;
+        scroll-margin-top: -30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    section:first-of-type {
+        padding: 0;
+    }
+
+    @media (min-width: 1000px) {
+        section {
+            scroll-margin-top: 30px;
+        }
+    }
+
+</style>
+
+
+<section id={id} class={classes.join(' ')}>
+    <slot/>
+</section>

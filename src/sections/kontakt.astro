@@ -1,74 +1,49 @@
 ---
 import GoogleMaps from "../components/GoogleMaps.astro"
 import ScrollTrigger from "../components/ScrollTrigger.astro"
+import Section from "../components/Section.astro"
+import SectionContent from "../components/SectionContent.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 import { frontmatter as markdown } from "../content/de/contact.md"
 import { SECTIONS } from "../utils/constants"
 ---
 
-<style>
+<style is:global>
     #contact {
         height: auto;
-        /* offset-x | offset-y | blur-radius | spread-radius | color */
-        -webkit-box-shadow: 0 22px 23px -10px #d1d1d1;
-        -moz-box-shadow: 0 22px 23px -10px #d1d1d1;
+        /* horizontal bottom shadow */
         box-shadow: 0 22px 23px -10px #d1d1d1;
     }
-    @media (min-width: 1px) and (max-width: 599px) {
-        #contact {
-            padding-left: 1%;
-            padding-right: 1%;
-            width: auto;
-        }
+
+    .pb-0 {
+        padding-bottom: 0;
     }
-    @media (min-width: 600px) and (max-width: 879px) {
-        #contact {
-            padding-left: 1%;
-            padding-right: 1%;
-            width: auto;
-        }
-    }
-    @media (min-width: 880px) and (max-width: 1299px) {
-        #contact {
-            padding-left: 8%;
-            padding-right: 8%;
-            width: auto;
-        }
-    }
-    @media (min-width: 1300px) and (max-width: 1649px) {
-        #contact {
-            padding-left: 12%;
-            padding-right: 12%;
-        }
-    }
-    @media (min-width: 1650px) {
-        #contact {
-            padding-left: 14%;
-            padding-right: 14%;
-            width: auto;
-        }
-    }
-    #contact .section-content p{
+
+    #contact-info{
         margin-bottom: 4vh;
     }
     #contact a:link {
         text-decoration: none;
         color: black;
-        padding-bottom: 4vh !important;
     }
 
 </style>
 
 
-<section id={SECTIONS.contact}>
-    <div class="section-header">
-        <h4 set:html={markdown.header} />
-    </div>
-    <div class="section-content">
+<Section id={SECTIONS.contact} className="pb-0">
+    <SectionHeader position="left">
+        <a href=`#${SECTIONS.contact}`>
+            <h3 set:html={markdown.header} />
+        </a>
+    </SectionHeader>
+    <SectionContent id="contact-info" type="text">
         <p set:html={markdown.content} />
+    </SectionContent>
+    <SectionContent type="media" className="box-shadow">
         <GoogleMaps />
-    </div>
+    </SectionContent>
     <ScrollTrigger />
-</section>
+</Section>
 
 
 

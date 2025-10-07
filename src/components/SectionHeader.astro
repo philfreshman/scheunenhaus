@@ -1,0 +1,93 @@
+---
+interface Props {
+    id?: string
+    className?: string
+    position: "left" | "center"
+}
+const { id, className, position }: Props = Astro.props
+
+const classes = ["section-header"]
+if (className) classes.push(className)
+if (position) classes.push(`is-${position}`)
+---
+<style is:global>
+    .section-header {
+        margin-bottom: 30px;
+        display: flex;
+    }
+
+    .section-header a {
+        display: contents;
+    }
+
+    .section-header span{
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+    .section-header.is-left {
+        justify-content: flex-start;
+    }
+
+    .section-header.is-center {
+        justify-content: center;
+    }
+
+    .section-header h3 {
+        /* Responsive base */
+        font-size: 0.8em;
+
+        -webkit-text-stroke: 0.5px currentColor;
+        letter-spacing: 2px;
+        margin-left: 1%;
+    }
+
+
+    @media (min-width: 440px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 1%;
+        }
+    }
+
+    @media (min-width: 640px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 1%;
+        }
+    }
+
+    /* BIG JUMP */
+    @media (min-width: 880px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 8%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 8%;
+        }
+    }
+
+    @media (min-width: 1300px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 12%;
+        }
+    }
+
+    @media (min-width: 1650px) {
+        .section-header h3 {
+            font-size: 0.8em;
+            margin-left: 14%;
+        }
+    }
+
+</style>
+
+<div id={id} class={classes.join(' ')}>
+    <slot/>
+</div>
