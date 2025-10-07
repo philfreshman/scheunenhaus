@@ -38,7 +38,7 @@ jobs:
                   fi
                   echo "✅ Build output verified."
             - name: Deploy to FTP
-              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.6
               with:
                   server: ${{ secrets.FTP_HOST }}
                   username: ${{ secrets.FTP_USER }}
@@ -81,7 +81,7 @@ jobs:
                   fi
                   echo "✅ Build output verified."
             - name: Deploy to FTP
-              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.6
               with:
                   server: ${{ secrets.FTP_HOST }}
                   username: ${{ secrets.FTP_USER }}
