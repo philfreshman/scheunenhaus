@@ -10,7 +10,7 @@ export const useAnimations = () => {
 
     const handleIntersect = (element: HTMLElement) => {
         // Get the stagger delay from data-attribute or use default
-        const delay = element.dataset.delay ? parseInt(element.dataset.delay, 10) : 0
+        const delay = element.dataset.delay ? Number.parseInt(element.dataset.delay, 10) : 0
 
         setTimeout(() => {
             element.classList.add('visible')

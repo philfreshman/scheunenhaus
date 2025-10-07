@@ -31,27 +31,34 @@ h1 {
     letter-spacing: 13px;
 }
 
-@media (min-width: var(--breakpoint-xs)) {
+@media (min-width: 350px) {
     h1 {
         font-size: 2.8rem;
         letter-spacing: 14px;
     }
 }
 
-@media (min-width: var(--breakpoint-xxl)) {
+@media (min-width: 1300px) {
     h1 {
         font-size: 2.9rem;
         letter-spacing: 16px;
     }
 }
 
-@media (min-width: var(--breakpoint-xxxl)) {
+@media (min-width: 1500px) {
     h1 {
         font-size: 3rem;
         letter-spacing: 17px;
     }
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+p {
+    margin: 0;
+}
 /*          */
 /*    h2    */
 /*          */
@@ -61,26 +68,11 @@ h2 {
 }
 
 /*          */
-/*    h4    */
+/*    h3    */
 /*          */
-h4 {
+h3 {
     margin: 0;
     width: fit-content;
-}
-
-/*         */
-/*    p    */
-/*         */
-@media (min-width: var(--breakpoint-md)) {
-    p {
-        width: unset;
-    }
-}
-
-@media (min-width: var(--breakpoint-lg)) {
-    p {
-        width: 670px;
-    }
 }
 
 /*         */
@@ -100,11 +92,4 @@ a:hover {
 .active-link {
     font-weight: 1000;
     -webkit-text-stroke: 0.5px currentColor;
-}
-
-/*                */
-/*    textarea    */
-/*                */
-textarea {
-    font-weight: 1000;
 }

@@ -1,0 +1,29 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props
+---
+
+<style>
+    @keyframes barberpole {
+        100% {
+            background-position: 100% 100%;
+        }
+    }
+
+    .loading-stripes-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .loading-stripes-animation {
+        background-image: var(--striped-background);
+        background-size: 200% 200%;
+        animation: barberpole 100s linear infinite;
+    }
+</style>
+
+<div id={id} class="loading-stripes-container loading-stripes-animation">
+    <slot />
+</div>

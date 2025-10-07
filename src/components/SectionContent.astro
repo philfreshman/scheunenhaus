@@ -1,0 +1,115 @@
+---
+interface Props {
+    id?: string
+    className?: string
+    type: "text" | "media" | "footer"
+}
+const { id, className, type } = Astro.props
+
+const classes = ["section-content"]
+if (className) classes.push(className)
+if (type) classes.push(type)
+---
+
+<style is:global>
+    :root {
+        --content-width-narrow: 670px;
+    }
+
+    .section-content {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &.box-shadow {
+            box-shadow: var(--media-box-shadow);
+        }
+
+        &.text {
+            & h2,
+            & p {
+                width: 97%;
+            }
+
+            & p {
+                font-size: 0.9rem;
+                line-height: 2;
+                text-box: auto;
+            }
+
+            @media (min-width: 440px) {
+                & h2,
+                & p {
+                    max-width: 95%;
+                }
+            }
+
+            @media (min-width: 745px) {
+                & h2,
+                & p {
+                    width: var(--content-width-narrow);
+                }
+
+                & p {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        /* calendar, maps etc. */
+        &.media {
+            align-self: center;
+            width: 100%;
+
+            @media (min-width: 440px) {
+                width: 98%;
+            }
+
+            @media (min-width: 880px) {
+                width: 82%;
+            }
+
+            @media (min-width: 1000px) {
+                width: 75%;
+            }
+
+            @media (min-width: 1250px) {
+                width: 70%;
+            }
+
+            @media (min-width: 1500px) {
+                width: 50%;
+            }
+        }
+
+        /* sponsors etc. */
+        &.footer {
+            font-size: 0.8em;
+            margin-left: 1%;
+
+            @media (min-width: 440px) {
+                margin: 0 1% 0 1%;
+            }
+            @media (min-width: 640px) {
+                margin: 0 1% 0 1%;
+            }
+            @media (min-width: 880px) {
+                margin: 0 8% 0 8%;
+            }
+            @media (min-width: 1024px) {
+                margin: 0 8% 0 8%;
+            }
+            @media (min-width: 1300px) {
+                margin: 0 12% 0 12%;
+            }
+            @media (min-width: 1650px) {
+                margin: 0 14% 0 14%;
+            }
+        }
+    }
+</style>
+
+<div id={id} class={classes.join(' ')}>
+    <slot/>
+</div>
