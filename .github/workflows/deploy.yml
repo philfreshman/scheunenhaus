@@ -47,8 +47,6 @@ jobs:
                   server-dir: /scheunenhausamsee.de/
                   timeout: 300000
                   log-level: verbose
-              env:
-                  FTP_TIMEOUT: 300000
     deploy-development:
         if: github.ref_name == 'development'
         runs-on: ubuntu-latest
@@ -90,5 +88,3 @@ jobs:
                   server-dir: /development.scheunenhausamsee.de/
                   timeout: 300000
                   log-level: verbose
-              env:
-                  FTP_TIMEOUT: 300000
