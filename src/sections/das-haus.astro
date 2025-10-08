@@ -39,12 +39,25 @@ import { SECTIONS } from "../utils/constants"
         }
     }
 
+    #das-haus {
+        scroll-margin-top: -40px;
+
+        @media (min-width: 1000px) {
+            scroll-margin-top: 40px;
+        }
+    }
+
     /*    "Ökologisches Ferienhaus"    */
     #title1 {
         grid-area: 1 / 1 / 2 / 6;
         padding-bottom: -40px;
 
         & h2 {
+            font-size: 1.6rem;
+            line-height: 1.3em;
+        }
+
+        @media (min-width: 730px) {
             font-size: 1.7rem;
         }
 
