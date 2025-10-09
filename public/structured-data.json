@@ -1,33 +1,336 @@
 {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Scheunenhaus am See",
-    "url": "https://scheunenhausamsee.de",
-    "hasPart": [
+    "@graph": [
         {
-            "@type": "WebPageElement",
-            "name": "Ausstattung",
-            "url": "https://scheunenhausamsee.de/#ausstattung"
+            "@type": "VacationRental",
+            "@id": "https://scheunenhausamsee.de/#vacationrental",
+            "name": "Scheunenhaus am See",
+            "description": "Ökologisches Ferienhaus für 10 Personen in der Uckermark. Nachhaltig konzipiertes Scheunenhaus mit 5000m² Naturgarten, in fußläufiger Nähe zum Badesee, 110km von Berlin entfernt.",
+            "url": "https://scheunenhausamsee.de",
+            "image": [
+                "https://scheunenhausamsee.de/og-image.png"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Seeweg 3",
+                "addressLocality": "Uckerfelde OT Bertikow",
+                "addressRegion": "Brandenburg",
+                "postalCode": "17291",
+                "addressCountry": "DE"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "53.24704359349119",
+                "longitude": "13.935297047810293"
+            },
+            "telephone": "+49 176 238 778 20",
+            "email": "mail@scheunenhausamsee.de",
+            "numberOfRooms": 5,
+            "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": "5000",
+                "unitCode": "MTK"
+            },
+            "occupancy": {
+                "@type": "QuantitativeValue",
+                "minValue": "1",
+                "maxValue": "10"
+            },
+            "petsAllowed": false,
+            "amenityFeature": [
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Küche",
+                    "value": true
+                },
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Kamin",
+                    "value": true
+                },
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Garten",
+                    "value": true
+                },
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Terrasse",
+                    "value": true
+                },
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "Parkplatz",
+                    "value": true
+                },
+                {
+                    "@type": "LocationFeatureSpecification",
+                    "name": "WLAN",
+                    "value": true
+                }
+            ],
+            "additionalProperty": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "Ökologisch",
+                    "value": true
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Natürliche Materialien",
+                    "value": true
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "Badesee in der Nähe",
+                    "value": "5 Minuten zu Fuß"
+                }
+            ]
         },
         {
-            "@type": "WebPageElement",
-            "name": "Preise",
-            "url": "https://scheunenhausamsee.de/#preise"
+            "@type": "WebSite",
+            "@id": "https://scheunenhausamsee.de/#website",
+            "name": "Scheunenhaus am See",
+            "url": "https://scheunenhausamsee.de",
+            "inLanguage": "de-DE",
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://scheunenhausamsee.de/#organization"
+            }
         },
         {
-            "@type": "WebPageElement",
-            "name": "Belegung",
-            "url": "https://scheunenhausamsee.de/#belegung"
+            "@type": "Organization",
+            "@id": "https://scheunenhausamsee.de/#organization",
+            "name": "Kasia Swiezak & Marius Bell GbR",
+            "url": "https://scheunenhausamsee.de",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://scheunenhausamsee.de/og-image.png"
+            },
+            "sameAs": [
+                "https://www.instagram.com/das_scheunenhaus",
+                "https://www.facebook.com/profile.php?id=100063353283052"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+49 176 238 778 20",
+                "email": "mail@scheunenhausamsee.de",
+                "contactType": "customer service",
+                "areaServed": "DE",
+                "availableLanguage": ["German"]
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Meininger Strasse 12",
+                "addressLocality": "Berlin",
+                "postalCode": "10823",
+                "addressCountry": "DE"
+            }
         },
         {
-            "@type": "WebPageElement",
-            "name": "Kontakt",
-            "url": "https://scheunenhausamsee.de/#kontakt"
+            "@type": "ImageGallery",
+            "@id": "https://scheunenhausamsee.de/#imagegallery",
+            "name": "Scheunenhaus am See - Bildergalerie",
+            "description": "Fotogalerie des Scheunenhauses am See mit Innen- und Außenansichten",
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image1",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/1_haus.jpeg",
+                    "caption": "House with big window",
+                    "name": "Haus mit großem Fenster"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image2",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/2_garten.jpg",
+                    "caption": "Garden view of house",
+                    "name": "Gartenansicht des Hauses"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image3",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/3_flur.jpg",
+                    "caption": "Hallway to kitchen",
+                    "name": "Flur zur Küche"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image4",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/4_flur.jpg",
+                    "caption": "Hallway gallery",
+                    "name": "Flur Galerie"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image5",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/5_kamin.jpg",
+                    "caption": "Fireplace and couch area",
+                    "name": "Kamin und Couchbereich"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image6",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/6_wohnraum.jpg",
+                    "caption": "Living room",
+                    "name": "Wohnraum"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image8",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/8_kuche.jpg",
+                    "caption": "Kitchen",
+                    "name": "Küche"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image9",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/9_kindernische.jpg",
+                    "caption": "Children's nook",
+                    "name": "Kindernische"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image10",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/10_bett.jpg",
+                    "caption": "Bedroom",
+                    "name": "Schlafzimmer"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image11",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/11_stuhl.jpeg",
+                    "caption": "Chair area",
+                    "name": "Stuhlbereich"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image12",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/12_bad.jpg",
+                    "caption": "Bathroom",
+                    "name": "Badezimmer"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image13",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/13_schlafboden.jpg",
+                    "caption": "Sleeping loft",
+                    "name": "Schlafboden"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image14",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/14_bild.jpg",
+                    "caption": "Artwork",
+                    "name": "Kunstwerk"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image15",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/15_front1.jpg",
+                    "caption": "Front view of house",
+                    "name": "Frontansicht des Hauses"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image17",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/17_eingang.jpg",
+                    "caption": "Entrance",
+                    "name": "Eingang"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image18",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/18_bad.jpeg",
+                    "caption": "Bathroom detail",
+                    "name": "Badezimmer Detail"
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "https://scheunenhausamsee.de/#image19",
+                    "contentUrl": "https://scheunenhausamsee.de/_astro/19_see.jpg",
+                    "caption": "Lake view",
+                    "name": "Seeblick"
+                }
+            ]
         },
         {
-            "@type": "WebPageElement",
-            "name": "Impressum",
-            "url": "https://scheunenhausamsee.de/impressum"
+            "@type": "FAQPage",
+            "@id": "https://scheunenhausamsee.de/#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Wie weit ist das Scheunenhaus am See von Berlin entfernt?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Das Scheunenhaus am See liegt etwa 110 km vom Berliner Zentrum entfernt in der Uckermark, Brandenburg. Die Fahrt dauert ca. 1,5 Stunden."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Für wie viele Personen ist das Ferienhaus geeignet?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Das Ferienhaus bietet Platz für bis zu 10 Erwachsene plus Kinder. Es verfügt über 5 Zimmer und ist ideal für Familien, Freunde oder Kollegen."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Gibt es einen Badesee in der Nähe?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, ein Badesee ist in fußläufiger Nähe erreichbar. Die nächstgelegene Badestelle ist nur etwa 5 Gehminuten entfernt."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Sind Haustiere im Ferienhaus erlaubt?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Nein, Haustiere sind im Scheunenhaus am See nicht erlaubt."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Welche Ausstattung bietet das Ferienhaus?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Das Ferienhaus verfügt über eine hochwertig ausgestattete Küche, Kamin, WLAN, Terrasse, Parkplatz und einen 5000m² großen Naturgarten. Es wurde mit natürlichen Materialien nachhaltig konzipiert."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Ist WLAN verfügbar?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, WLAN ist im Ferienhaus verfügbar."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Gibt es Parkmöglichkeiten?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ja, Parkplätze sind direkt am Ferienhaus vorhanden."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Was macht das Scheunenhaus ökologisch?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Das Ferienhaus wurde nachhaltig konzipiert mit großem Wert auf natürliche Materialien. Die Innenarchitektur greift traditionelle Scheunenstrukturen mit offenen Räumen, Schlafgalerien und Holzdecken auf."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Wie kontaktiere ich die Vermieter?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sie erreichen uns telefonisch unter +49 176 238 778 20 oder per E-Mail an mail@scheunenhausamsee.de."
+                    }
+                }
+            ]
         }
     ]
 }
