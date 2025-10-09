@@ -26,6 +26,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <meta name="copyright" content="© 2025 Kasia Swiezak & Marius Bell GbR" />
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+    <meta property="og:image:alt" content="Scenic view of Scheunenhaus am See" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Scheunenhaus am See" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-image.png', Astro.site)} />
+    <meta name="twitter:image:alt" content="Scenic view of Scheunenhaus am See" />
+
+
     <!-- Geo Tags -->
     <meta name="geo.region" content="DE-BB" />
     <meta name="geo.placename" content="Bertikow, Uckermark" />
