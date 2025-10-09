@@ -1,16 +1,37 @@
 ---
 interface Props {
     title?: string
+    description?: string
 }
 
-const { title = "Scheunenhaus am See" } = Astro.props
+const siteTitle = "Scheunenhaus am See"
+const defaultDescription =
+    "Ferienhaus für 10 Personen in der Uckermark. Ökologisches Scheunenhaus am See mit 5000m² Naturgarten, 110km von Berlin. Perfekt für Familien & Gruppen."
+
+const { title = siteTitle, description = defaultDescription } = Astro.props
+
+// Create SEO-optimized title with site name
+const pageTitle = title === siteTitle ? title : `${title} | ${siteTitle}`
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <head>
-    <title>{title}</title>
+    <!-- Primary Meta Tags -->
+    <title>{pageTitle}</title>
     <meta charset="UTF-8" />
-    <meta name="description" content="Ferienhaus für 10 Personen in der Uckermark. Ökologisches Scheunenhaus am See mit 5000m² Naturgarten, 110km von Berlin. Perfekt für Familien & Gruppen." />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Ferienhaus Uckermark, Ferienhaus Brandenburg, Gruppenhaus Berlin, Ferienhaus 10 Personen, Scheunenhaus, Badesee, ökologisches Ferienhaus" />
+    <meta name="author" content="Kasia Swiezak & Marius Bell" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="DE-BB" />
+    <meta name="geo.placename" content="Bertikow, Uckermark" />
+    <meta name="geo.position" content="53.24704359349119;13.935297047810293" />
+    <meta name="ICBM" content="53.24704359349119, 13.935297047810293" />
+
+    <!-- Structured Data -->
     <script type="application/ld+json" src="/structured-data.json" is:inline/>
 
     <link rel="preload" href="/fonts/amatic-sc.woff2" as="font" type="font/woff2" crossorigin />
