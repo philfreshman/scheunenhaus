@@ -19,10 +19,10 @@
 		"@fullcalendar/list": "7.0.0-rc.0",
 		"@fullcalendar/timegrid": "7.0.0-rc.0",
 		"@vite-pwa/astro": "^1.1.0",
-		"astro": "5.14.4"
+		"astro": "5.15.3"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.4",
+		"@astrojs/check": "^0.9.5",
 		"@astrojs/sitemap": "^3.6.0",
 		"@biomejs/biome": "2.2.4",
 		"astro-robots-txt": "^1.0.0",
