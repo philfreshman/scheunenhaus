@@ -2,7 +2,7 @@
     /* Mobile-first breakpoint variables */
     --breakpoint-xs: 350px;
     --breakpoint-sm: 380px;
-    --breakpoint-md: 580px;  /* Start of md range */
-    --breakpoint-lg: 745px;  /* Start of lg range */
+    --breakpoint-md: 580px; /* Start of md range */
+    --breakpoint-lg: 745px; /* Start of lg range */
     --breakpoint-xl: 1000px;
 }
