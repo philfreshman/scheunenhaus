@@ -10,7 +10,8 @@
 		"astro": "astro",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
-		"check": "biome check --apply ."
+		"check": "biome check --apply .",
+		"migrate": "biome migrate --write"
 	},
 	"dependencies": {
 		"@fullcalendar/core": "7.0.0-rc.0",
@@ -24,7 +25,7 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.5",
 		"@astrojs/sitemap": "^3.6.0",
-		"@biomejs/biome": "2.2.4",
+		"@biomejs/biome": "2.3.2",
 		"astro-robots-txt": "^1.0.0",
 		"autoprefixer": "^10.4.21",
 		"cssnano": "^7.1.1",
