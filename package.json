@@ -19,7 +19,7 @@
 		"@fullcalendar/google-calendar": "7.0.0-rc.0",
 		"@fullcalendar/list": "7.0.0-rc.0",
 		"@fullcalendar/timegrid": "7.0.0-rc.0",
-		"@vite-pwa/astro": "^1.1.0",
+		"@vite-pwa/astro": "^1.1.1",
 		"astro": "5.15.3"
 	},
 	"devDependencies": {
