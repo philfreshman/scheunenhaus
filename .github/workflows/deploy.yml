@@ -12,7 +12,7 @@ jobs:
         environment: Production
         steps:
             - name: Checkout code
-              uses: actions/checkout@v5
+              uses: actions/checkout@v6
             - name: Cache npm modules
               uses: actions/cache@v4
               with:
@@ -53,7 +53,7 @@ jobs:
         environment: Development
         steps:
             - name: Checkout code
-              uses: actions/checkout@v5
+              uses: actions/checkout@v6
             - name: Cache npm modules
               uses: actions/cache@v4
               with:
