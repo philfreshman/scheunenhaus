@@ -19,18 +19,17 @@
 		"@fullcalendar/google-calendar": "7.0.0-rc.0",
 		"@fullcalendar/list": "7.0.0-rc.0",
 		"@fullcalendar/timegrid": "7.0.0-rc.0",
-		"@vite-pwa/astro": "^1.1.1",
-		"astro": "5.17.1"
+		"astro": "5.18.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.5",
-		"@astrojs/sitemap": "^3.6.0",
-		"@biomejs/biome": "2.3.2",
+		"@astrojs/check": "^0.9.6",
+		"@astrojs/sitemap": "^3.7.0",
+		"@biomejs/biome": "2.4.4",
 		"astro-robots-txt": "^1.0.0",
-		"autoprefixer": "^10.4.21",
+		"autoprefixer": "^10.4.27",
 		"cssnano": "^7.1.2",
 		"postcss": "^8.5.6",
-		"typescript": "^5.9.2"
+		"typescript": "^5.9.3"
 	},
 	"browserslist": [
 		"last 10 versions",
