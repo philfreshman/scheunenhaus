@@ -13,7 +13,25 @@ updates:
           - "dependencies"
           - "automated"
       rebase-strategy: auto
-
+      ignore:
+          - dependency-name: "@fullcalendar/*"
+            update-types:
+                - "version-update:semver-patch"
+                - "version-update:semver-minor"
+      groups:
+          astro:
+              patterns:
+                  - "astro"
+                  - "@astrojs/*"
+                  - "astro-*"
+          biome:
+              patterns:
+                  - "@biomejs/*"
+          postcss:
+              patterns:
+                  - "postcss"
+                  - "autoprefixer"
+                  - "cssnano"
     - package-ecosystem: "github-actions"
       directory: "/"
       schedule:
@@ -26,3 +44,7 @@ updates:
       labels:
           - "dependencies"
           - "automated"
+      groups:
+          github-actions:
+              patterns:
+                  - "*"
