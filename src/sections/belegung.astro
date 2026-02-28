@@ -19,7 +19,7 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.occupancy}>
     <SectionHeader position="left">
-        <a href=`#${SECTIONS.occupancy}`>
+        <a href={SECTIONS.occupancy} aria-label={markdown.header}>
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
