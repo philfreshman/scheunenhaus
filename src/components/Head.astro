@@ -22,7 +22,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Kasia Swiezak & Marius Bell" />
-    <meta name="copyright" content="© 2025 Kasia Swiezak & Marius Bell GbR" />
+    <meta name="copyright" content={`© ${new Date().getFullYear()} Kasia Swiezak & Marius Bell GbR`} />
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
