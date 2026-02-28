@@ -1,5 +1,8 @@
 {
     "$schema": "https://biomejs.dev/schemas/2.4.4/schema.json",
+    "files": {
+        "includes": ["**/src/**", "!**/node_modules", "!**/dist"]
+    },
     "assist": { "actions": { "source": { "organizeImports": "on" } } },
     "linter": {
         "enabled": true,
@@ -22,7 +25,9 @@
                 "noDescendingSpecificity": "off"
             },
             "complexity": {
-                "noForEach": "off"
+                "noForEach": "off",
+                "useArrowFunction": "off",
+                "noImportantStyles": "off"
             },
             "a11y": {
                 "useGenericFontNames": "off"
@@ -47,6 +52,9 @@
             "indentWidth": 4
         }
     },
+    "html": {
+        "experimentalFullSupportEnabled": true
+    },
     "overrides": [
         {
             "includes": ["**/*.astro"],
@@ -63,8 +71,5 @@
                 }
             }
         }
-    ],
-    "files": {
-        "includes": ["**/src/**", "!**/node_modules", "!**/dist"]
-    }
+    ]
 }

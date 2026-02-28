@@ -11,7 +11,7 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.furnishing}>
     <SectionHeader className="section-header" position="left">
-        <a href=`#${SECTIONS.furnishing}`>
+        <a href={SECTIONS.furnishing} aria-label={markdown.header}>
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
