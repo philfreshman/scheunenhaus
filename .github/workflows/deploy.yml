@@ -11,19 +11,13 @@ jobs:
         runs-on: ubuntu-latest
         environment: Production
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v5
-            - name: Cache npm modules
-              uses: actions/cache@v5
+            - uses: actions/checkout@v6
+            - uses: oven-sh/setup-bun@v2
               with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-npm-
-            - name: Install dependencies
-              run: npm ci --prefer-offline
+                  bun-version: latest
+            - run: bun install --frozen-lockfile
             - name: Build Astro site
-              run: npm run build
+              run: bun run build
               env:
                   PUBLIC_GOOGLE_CALENDAR_API_KEY: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_API_KEY }}
                   PUBLIC_GOOGLE_CALENDAR_ID_1: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_1 }}
@@ -33,7 +27,7 @@ jobs:
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
-                    echo "❌ dist/ folder not found! Build may have failed."
+                    echo "❌ dist/ folder not found!"
                     exit 1
                   fi
                   echo "✅ Build output verified."
@@ -52,19 +46,13 @@ jobs:
         runs-on: ubuntu-latest
         environment: Development
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v5
-            - name: Cache npm modules
-              uses: actions/cache@v5
+            - uses: actions/checkout@v6
+            - uses: oven-sh/setup-bun@v2
               with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-npm-
-            - name: Install dependencies
-              run: npm ci --prefer-offline
+                  bun-version: latest
+            - run: bun install --frozen-lockfile
             - name: Build Astro site
-              run: npm run build
+              run: bun run build
               env:
                   PUBLIC_GOOGLE_CALENDAR_API_KEY: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_API_KEY }}
                   PUBLIC_GOOGLE_CALENDAR_ID_1: ${{ secrets.PUBLIC_GOOGLE_CALENDAR_ID_1 }}
@@ -74,7 +62,7 @@ jobs:
             - name: Verify build output
               run: |
                   if [ ! -d "dist" ]; then
-                    echo "❌ dist/ folder not found! Build may have failed."
+                    echo "❌ dist/ folder not found!"
                     exit 1
                   fi
                   echo "✅ Build output verified."
