@@ -82,3 +82,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <!-- Web App Manifest -->
     <link rel="manifest" href="/site.webmanifest" />
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLLELPX8LR"></script>
+<script>
+    // @ts-nocheck
+    // biome-ignore-start lint: google stuff
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZLLELPX8LR');
+    // biome-ignore-end lint: google stuff
+</script>
+
