@@ -8,10 +8,11 @@
 		"build": "astro check && astro build",
 		"preview": "astro check && astro build && astro preview",
 		"astro": "astro",
-		"format": "biome format --write .",
+		"format": "biome format .",
 		"lint": "biome lint .",
 		"check": "biome check --apply .",
-		"migrate": "biome migrate --write"
+		"migrate": "biome migrate --write",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@fullcalendar/core": "7.0.0-rc.0",
@@ -28,6 +29,7 @@
 		"astro-robots-txt": "^1.0.0",
 		"autoprefixer": "^10.4.27",
 		"cssnano": "^7.1.2",
+		"husky": "^9.1.7",
 		"postcss": "^8.5.6",
 		"typescript": "^5.9.3"
 	},
