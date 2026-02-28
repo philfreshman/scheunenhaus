@@ -16,8 +16,6 @@ const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID
         height: 48vh;
         position: relative;
 
-        @media (min-width: 1000px) {
-        }
     }
 
     #google-map {
@@ -47,6 +45,7 @@ const GOOGLE_MAPS_PLACE_ID = import.meta.env.PUBLIC_GOOGLE_MAPS_PLACE_ID
 <LoadingStripes id="maps-stripes">
     <div class="iframe-container">
         <iframe
+            title="Google Maps Embed"
             style="border: 0"
             loading="lazy"
             allowfullscreen
