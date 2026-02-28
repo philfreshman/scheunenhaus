@@ -32,7 +32,7 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.contact} className="pb-0">
     <SectionHeader position="left">
-        <a href=`#${SECTIONS.contact}`>
+        <a href={SECTIONS.contact} aria-label={markdown.header}>
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
