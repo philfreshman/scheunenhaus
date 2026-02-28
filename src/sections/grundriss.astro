@@ -18,7 +18,7 @@ import { SECTIONS } from "../utils/constants"
 <Section id={SECTIONS.floorPlan}>
 
     <SectionHeader position="left">
-        <a href=`#${SECTIONS.floorPlan}`>
+        <a href={SECTIONS.floorPlan} aria-label={markdown.header}>
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
