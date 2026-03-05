@@ -82,12 +82,12 @@ import Hamburger from "./Hamburger.astro"
 
   <div id="sideMenu">
       <div id="links">
-        <a class="link" href={SECTIONS.house}>DAS HAUS</a>
-        <a class="link" href={SECTIONS.furnishing}>AUSSTATTUNG</a>
-        <a class="link" href={SECTIONS.floorPlan}>GRUNDRISS</a>
-        <a class="link" href={SECTIONS.price}>PREISE</a>
-        <a class="link" href={SECTIONS.occupancy}>BELEGUNG</a>
-        <a class="link" href={SECTIONS.contact}>KONTAKT</a>
+        <a class="link" href={`#${SECTIONS.house}`}>DAS HAUS</a>
+        <a class="link" href={`#${SECTIONS.furnishing}`}>AUSSTATTUNG</a>
+        <a class="link" href={`#${SECTIONS.floorPlan}`}>GRUNDRISS</a>
+        <a class="link" href={`#${SECTIONS.price}`}>PREISE</a>
+        <a class="link" href={`#${SECTIONS.occupancy}`}>BELEGUNG</a>
+        <a class="link" href={`#${SECTIONS.contact}`}>KONTAKT</a>
         <span class="socials" style="display: flex; flex-direction: row; gap: 20px">
           <a
               aria-label="instagram-link"
@@ -179,4 +179,3 @@ import Hamburger from "./Hamburger.astro"
         });
     });
 </script>
-
