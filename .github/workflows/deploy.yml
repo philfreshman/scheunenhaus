@@ -12,6 +12,9 @@ jobs:
         environment: Production
         steps:
             - uses: actions/checkout@v6
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: latest
@@ -47,6 +50,9 @@ jobs:
         environment: Development
         steps:
             - uses: actions/checkout@v6
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: latest
