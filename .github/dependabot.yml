@@ -18,38 +18,20 @@ updates:
             update-types:
                 - "version-update:semver-patch"
                 - "version-update:semver-minor"
-          - dependency-name: "@biomejs/*"
       groups:
           astro:
               patterns:
                   - "astro"
                   - "@astrojs/*"
                   - "astro-*"
+          biome:
+              patterns:
+                  - "@biomejs/*"
           postcss:
               patterns:
                   - "postcss"
                   - "autoprefixer"
                   - "cssnano"
-    - package-ecosystem: "npm"
-      directory: "/"
-      schedule:
-          interval: "weekly"
-          day: "monday"
-          time: "04:00"
-          timezone: "UTC"
-      target-branch: "development"
-      open-pull-requests-limit: 2
-      labels:
-          - "dependencies"
-          - "automated"
-          - "biome"
-      rebase-strategy: auto
-      allow:
-          - dependency-name: "@biomejs/*"
-      groups:
-          biome:
-              patterns:
-                  - "@biomejs/*"
     - package-ecosystem: "github-actions"
       directory: "/"
       schedule:
