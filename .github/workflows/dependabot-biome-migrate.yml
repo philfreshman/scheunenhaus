@@ -1,0 +1,42 @@
+name: Dependabot Biome Migrate
+
+on:
+    pull_request_target:
+        types:
+            - opened
+            - synchronize
+            - reopened
+            - labeled
+
+permissions:
+    contents: write
+
+jobs:
+    biome-migrate:
+        if: github.actor == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'biome')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out PR branch
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+                  repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+            - name: Set up Bun
+              uses: oven-sh/setup-bun@v2
+
+            - name: Run Biome migration
+              run: bun run migrate
+
+            - name: Commit updated biome.json
+              run: |
+                  if git diff --quiet -- biome.json; then
+                    echo "No biome.json changes to commit."
+                    exit 0
+                  fi
+
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add biome.json
+                  git commit -m "chore: run biome migrate"
+                  git push
