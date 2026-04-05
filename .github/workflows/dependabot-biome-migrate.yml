@@ -13,7 +13,7 @@ permissions:
 
 jobs:
     biome-migrate:
-        if: github.actor == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'biome')
+        if: github.actor == 'dependabot[bot]' && contains(github.event.pull_request.title, 'biome')
         runs-on: ubuntu-latest
         steps:
             - name: Check out PR branch
