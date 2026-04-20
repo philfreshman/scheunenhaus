@@ -20,7 +20,7 @@
 		"@fullcalendar/google-calendar": "7.0.0-rc.0",
 		"@fullcalendar/list": "7.0.0-rc.0",
 		"@fullcalendar/timegrid": "7.0.0-rc.0",
-		"astro": "6.1.5"
+		"astro": "6.1.8"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
