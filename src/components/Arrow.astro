@@ -8,6 +8,11 @@ import arrowPng from "../assets/png/arrow.png?url"
         right: 22px;
         bottom: 0;
 
+        /* It is a <button> for keyboard access, so strip the UA chrome */
+        border: none;
+        background: none;
+        padding: 0;
+
         /* Start hidden and transparent for transition */
         opacity: 0;
         visibility: hidden;
@@ -43,17 +48,9 @@ import arrowPng from "../assets/png/arrow.png?url"
     }
 </style>
 
-<div class="back-to-top">
-    <img
-        id="arrow"
-        onclick="{
-            document.documentElement.scrollTop = 0;
-            window.history.pushState({}, '', '/')
-        }"
-        src={arrowPng}
-        alt="arrow"
-    />
-</div>
+<button class="back-to-top" type="button" aria-label="Zurück nach oben">
+    <img id="arrow" src={arrowPng} alt="" />
+</button>
 
 <script>
     const TOP = 1000;
@@ -81,6 +78,13 @@ import arrowPng from "../assets/png/arrow.png?url"
         // Call the function once on load in case the page is already scrolled
         scrollFunction();
 
+
+        // Was an inline onclick on the <img>, which mouse users could reach but
+        // keyboard users could not.
+        backToTopButton.addEventListener("click", () => {
+            document.documentElement.scrollTop = 0;
+            window.history.pushState({}, '', '/');
+        })
 
         // Behaves better for moving elements than using :hover
         backToTopButton.addEventListener("mouseover", () => {
