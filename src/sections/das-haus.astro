@@ -195,6 +195,7 @@ import { SECTIONS } from "../utils/constants"
 
     <SectionContent id="title1" type="text">
         <a href={`#${SECTIONS.house}`} aria-label={`${markdown.title1} ${markdown.title2}`}>
+            <!-- biome-ignore lint/a11y/useHeadingContent: content is injected by set:html -->
             <h2>
                 <span set:html={markdown.title1} />
                 <span set:html={markdown.title2} />
