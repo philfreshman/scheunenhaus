@@ -1,0 +1,51 @@
+name: Sync bun lockfile
+
+on:
+    pull_request_target:
+        types:
+            - opened
+            - synchronize
+            - reopened
+
+permissions:
+    contents: write
+
+jobs:
+    sync:
+        # Dependabot has no bun.lock support, so it only ever rewrites package.json
+        # and leaves the lockfile stale - that is what made `bun install
+        # --frozen-lockfile` fail on main. Version updates are Renovate's job now,
+        # but security updates are a repo setting Dependabot still owns, so those
+        # PRs land here and get their lockfile filled in.
+        # Renovate updates bun.lock itself and is deliberately not matched.
+        if: >-
+            github.actor == 'dependabot[bot]' &&
+            github.event.pull_request.head.repo.full_name == github.repository
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out PR branch
+              uses: actions/checkout@v6
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: latest
+
+            # --ignore-scripts: this job holds a write token and resolves versions a
+            # bot picked, so no dependency lifecycle script gets to run here.
+            - name: Resolve dependencies
+              run: bun install --ignore-scripts
+
+            - name: Commit updated lockfile
+              run: |
+                  if git diff --quiet -- bun.lock; then
+                    echo "bun.lock is already in sync."
+                    exit 0
+                  fi
+
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add bun.lock
+                  git commit -m "chore: sync bun.lock"
+                  git push
