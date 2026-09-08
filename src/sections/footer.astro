@@ -76,7 +76,8 @@ import SectionHeader from "../components/SectionHeader.astro"
             flex-direction: row;
         }
     }
-    footer a {
+    footer a,
+    footer span {
         text-decoration: none;
         color: black;
         align-self: flex-end;
@@ -195,7 +196,7 @@ import SectionHeader from "../components/SectionHeader.astro"
 
     <SectionContent type="footer">
         <div class="footer-bottom">
-            <a id="copyright">COPYRIGHT © {new Date().getFullYear()} SCHEUNENHAUS AM SEE</a>
+            <span id="copyright">COPYRIGHT © {new Date().getFullYear()} SCHEUNENHAUS AM SEE</span>
             <div class="impressum">
                 <a href="/impressum">IMPRESSUM</a>
                 <a href="/datenschutz">DATENSCHUTZ</a>
