@@ -21,6 +21,24 @@ All commands are run from the root of the project:
 | `bun run preview` | Preview the build locally |
 | `bun run check` | Lint and format code with Biome |
 
+## Dependency updates
+
+[Renovate](https://docs.renovatebot.com/) opens dependency PRs weekly, configured in
+[`renovate.json`](./renovate.json). Unlike Dependabot it understands Bun, so it updates
+`bun.lock` alongside `package.json` — without that the deploy's `bun install --frozen-lockfile`
+fails.
+
+- **Target branch:** `main`. GitHub always opens security PRs against the default branch, so
+  pointing routine updates anywhere else splits dependency state across two branches.
+- **Auto-merge:** patch and minor updates merge themselves once CI passes. Majors, and anything
+  touching Biome, wait for a human.
+- **CI** ([`ci.yml`](./.github/workflows/ci.yml)) runs lint, format and a full build on every PR.
+  A PR whose lockfile is out of sync fails there and can never auto-merge.
+
+The `overrides` block in `package.json` pulls four transitive dependencies past advisories
+their parent packages have not picked up yet. Drop an entry once the parent ships the fixed
+range on its own; `bun audit` should stay at zero either way.
+
 ## License
 
 All Rights Reserved © 2026 [Kasia Swiezak & Marius Bell GbR](https://scheunenhausamsee.de/).  
