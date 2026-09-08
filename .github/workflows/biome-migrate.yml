@@ -1,4 +1,4 @@
-name: Dependabot Biome Migrate
+name: Biome Migrate
 
 on:
     pull_request_target:
@@ -13,17 +13,26 @@ permissions:
 
 jobs:
     biome-migrate:
-        if: github.actor == 'dependabot[bot]' && contains(github.event.pull_request.labels.*.name, 'biome')
+        # renovate.json labels the biome group "biome" and keeps it off auto-merge,
+        # so the config change this pushes always gets looked at before it merges.
+        if: >-
+            (github.actor == 'renovate[bot]' || github.actor == 'dependabot[bot]') &&
+            contains(github.event.pull_request.labels.*.name, 'biome') &&
+            github.event.pull_request.head.repo.full_name == github.repository
         runs-on: ubuntu-latest
         steps:
             - name: Check out PR branch
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
-                  repository: ${{ github.event.pull_request.head.repo.full_name }}
 
-            - name: Set up Bun
-              uses: oven-sh/setup-bun@v2
+            - uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: latest
+
+            # `bun run migrate` needs the bumped Biome on disk to migrate against.
+            - name: Install dependencies
+              run: bun install --frozen-lockfile --ignore-scripts
 
             - name: Run Biome migration
               run: bun run migrate
