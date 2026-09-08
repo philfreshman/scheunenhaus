@@ -1,0 +1,62 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended"],
+	"timezone": "Europe/Berlin",
+	"schedule": ["before 6am on monday"],
+	"baseBranches": ["main"],
+	"labels": ["dependencies", "automated"],
+	"prConcurrentLimit": 10,
+	"prHourlyLimit": 0,
+	"platformAutomerge": true,
+	"lockFileMaintenance": {
+		"enabled": true,
+		"schedule": ["before 6am on the first day of the month"],
+		"automerge": true
+	},
+	"vulnerabilityAlerts": {
+		"enabled": true,
+		"addLabels": ["security"],
+		"schedule": ["at any time"]
+	},
+	"packageRules": [
+		{
+			"description": "Everything below a major bump merges itself once CI is green",
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
+			"description": "Majors reach production too, so a human signs those off",
+			"matchUpdateTypes": ["major"],
+			"automerge": false,
+			"addLabels": ["major"]
+		},
+		{
+			"description": "FullCalendar sits on a release candidate on purpose - only tell us about majors",
+			"matchPackageNames": ["@fullcalendar/**"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"enabled": false
+		},
+		{
+			"description": "Astro core and its integrations only work in lockstep",
+			"matchPackageNames": ["astro", "@astrojs/**", "astro-*"],
+			"groupName": "astro"
+		},
+		{
+			"description": "Biome bumps need `bun run migrate`, which biome-migrate.yml pushes onto the PR - never merge before that lands",
+			"matchPackageNames": ["@biomejs/**"],
+			"groupName": "biome",
+			"addLabels": ["biome"],
+			"automerge": false
+		},
+		{
+			"description": "The PostCSS toolchain moves as one",
+			"matchPackageNames": ["postcss", "autoprefixer", "cssnano"],
+			"groupName": "postcss"
+		},
+		{
+			"description": "Workflow action bumps move as one",
+			"matchManagers": ["github-actions"],
+			"groupName": "github-actions"
+		}
+	]
+}

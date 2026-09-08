@@ -10,7 +10,7 @@
 		"astro": "astro",
 		"format": "biome format .",
 		"lint": "biome lint .",
-		"check": "biome check --apply .",
+		"check": "biome check --write .",
 		"migrate": "biome migrate --write",
 		"prepare": "husky"
 	},
