@@ -19,6 +19,7 @@ import { SECTIONS } from "../utils/constants"
 
     <SectionHeader position="left">
         <a href={`#${SECTIONS.floorPlan}`} aria-label={markdown.header}>
+            <!-- biome-ignore lint/a11y/useHeadingContent: content is injected by set:html -->
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>

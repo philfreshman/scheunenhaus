@@ -35,6 +35,10 @@ fails.
 - **CI** ([`ci.yml`](./.github/workflows/ci.yml)) runs lint, format and a full build on every PR.
   A PR whose lockfile is out of sync fails there and can never auto-merge.
 
+The `overrides` block in `package.json` pulls four transitive dependencies past advisories
+their parent packages have not picked up yet. Drop an entry once the parent ships the fixed
+range on its own; `bun audit` should stay at zero either way.
+
 ## License
 
 All Rights Reserved © 2026 [Kasia Swiezak & Marius Bell GbR](https://scheunenhausamsee.de/).  

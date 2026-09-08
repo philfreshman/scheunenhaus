@@ -33,6 +33,7 @@ import { SECTIONS } from "../utils/constants"
 <Section id={SECTIONS.contact} className="pb-0">
     <SectionHeader position="left">
         <a href={`#${SECTIONS.contact}`} aria-label={markdown.header}>
+            <!-- biome-ignore lint/a11y/useHeadingContent: content is injected by set:html -->
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
