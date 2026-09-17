@@ -12,19 +12,26 @@ permissions:
 
 jobs:
     sync:
-        # Dependabot has no bun.lock support, so it only ever rewrites package.json
-        # and leaves the lockfile stale - that is what made `bun install
-        # --frozen-lockfile` fail on main. Version updates are Renovate's job now,
-        # but security updates are a repo setting Dependabot still owns, so those
-        # PRs land here and get their lockfile filled in.
-        # Renovate updates bun.lock itself and is deliberately not matched.
+        # Version updates go through dependabot.yml's "bun" ecosystem, which
+        # writes bun.lock alongside package.json - for those this job finds
+        # nothing to do and exits.
+        #
+        # Security updates are the gap. They are a repository setting rather
+        # than config, and they are raised against the advisory's ecosystem,
+        # which is npm_and_yarn - so they rewrite package.json and leave
+        # bun.lock stale, exactly what made `bun install --frozen-lockfile`
+        # fail on main. Those PRs land here and get their lockfile filled in.
+        #
+        # The commit this pushes uses GITHUB_TOKEN, which raises no events, so
+        # CI does not re-run and dependabot-auto-merge.yml will not merge a
+        # head that no CI run covers. Security PRs therefore finish by hand.
         if: >-
             github.actor == 'dependabot[bot]' &&
             github.event.pull_request.head.repo.full_name == github.repository
         runs-on: ubuntu-latest
         steps:
             - name: Check out PR branch
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
 

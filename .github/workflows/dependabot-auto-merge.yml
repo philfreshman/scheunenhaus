@@ -1,0 +1,111 @@
+name: Dependabot auto-merge
+
+# Merges a Dependabot PR once CI has gone green on it.
+#
+# This keys off `workflow_run` rather than GitHub's native auto-merge on
+# purpose. Native auto-merge only waits for checks when a branch protection
+# rule marks them as required; on an unprotected branch it merges as soon as
+# the PR is mergeable, which would mean merging before CI has said anything.
+# Keying off a completed CI run makes "green" a precondition rather than a
+# hope, and it needs no repository settings to be correct.
+
+on:
+    workflow_run:
+        workflows:
+            - CI
+        types:
+            - completed
+
+# No checkout happens here and nothing from the PR is executed - this job only
+# talks to the API - so a write token is safe in this context.
+permissions:
+    contents: write
+    pull-requests: write
+    actions: write
+
+jobs:
+    merge:
+        if: >-
+            github.event.workflow_run.conclusion == 'success' &&
+            github.event.workflow_run.event == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Merge the pull request if it is safe to take unattended
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  REPO: ${{ github.repository }}
+                  OWNER: ${{ github.repository_owner }}
+                  BRANCH: ${{ github.event.workflow_run.head_branch }}
+                  TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
+              run: |
+                  set -euo pipefail
+
+                  # -X GET is required: gh switches to POST as soon as -f is used.
+                  # The REST API is used rather than `gh pr list` because it
+                  # reports the author as "dependabot[bot]" verbatim, where gh
+                  # strips the [bot] suffix.
+                  pr=$(gh api -X GET "repos/$REPO/pulls" \
+                        -f state=open -f "head=$OWNER:$BRANCH" \
+                        --jq '.[0] // empty')
+                  if [ -z "$pr" ]; then
+                    echo "No open pull request for $BRANCH - nothing to merge."
+                    exit 0
+                  fi
+
+                  number=$(jq -r '.number'          <<<"$pr")
+                  author=$(jq -r '.user.login'      <<<"$pr")
+                  head=$(jq   -r '.head.sha'        <<<"$pr")
+
+                  if [ "$author" != "dependabot[bot]" ]; then
+                    echo "PR #$number is by $author, not Dependabot - leaving it alone."
+                    exit 0
+                  fi
+
+                  # CI reported on TESTED_SHA. If the branch has moved since -
+                  # lockfile-sync.yml or biome-migrate.yml pushing a commit, or a
+                  # Dependabot rebase - then nothing has vouched for the current
+                  # head and merging it would merge untested code.
+                  if [ "$head" != "$TESTED_SHA" ]; then
+                    echo "PR #$number is now at $head but CI ran on $TESTED_SHA - waiting."
+                    exit 0
+                  fi
+
+                  # Biome bumps carry a `bun run migrate` commit pushed by
+                  # biome-migrate.yml, and its rule changes want a human's eyes.
+                  case "$BRANCH" in
+                    dependabot/*/biome-*)
+                      echo "PR #$number is a Biome bump - a human signs those off."
+                      exit 0
+                      ;;
+                  esac
+
+                  # Dependabot records what it did in a trailer on its own commit:
+                  #   - dependency-name: astro
+                  #     update-type: version-update:semver-patch
+                  # A grouped PR carries one block per dependency, so a single
+                  # major anywhere in the group holds the whole PR back.
+                  message=$(gh api "repos/$REPO/commits/$head" --jq '.commit.message')
+                  if ! grep -q 'update-type: version-update:semver-' <<<"$message"; then
+                    echo "No Dependabot update metadata on $head - not merging blind."
+                    exit 0
+                  fi
+                  if grep -q 'update-type: version-update:semver-major' <<<"$message"; then
+                    echo "PR #$number contains a major bump - a human signs those off."
+                    exit 0
+                  fi
+
+                  # Ask the repository which merge methods it allows rather than
+                  # guessing, so a disabled squash button cannot fail this job.
+                  method=$(gh api "repos/$REPO" --jq '
+                    if .allow_squash_merge then "--squash"
+                    elif .allow_merge_commit then "--merge"
+                    else "--rebase" end')
+
+                  echo "Merging PR #$number ($BRANCH) with $method - CI is green on $TESTED_SHA."
+                  gh pr merge "$number" --repo "$REPO" "$method" --delete-branch
+
+                  # A merge made with GITHUB_TOKEN does not raise a `push` event,
+                  # so deploy.yml would never fire and main would drift away from
+                  # what is actually live. Ask for the deploy explicitly.
+                  echo "Dispatching deploy for main."
+                  gh workflow run deploy.yml --repo "$REPO" --ref main

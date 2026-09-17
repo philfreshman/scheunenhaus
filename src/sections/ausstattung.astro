@@ -11,8 +11,8 @@ import { SECTIONS } from "../utils/constants"
 
 <Section id={SECTIONS.furnishing}>
     <SectionHeader className="section-header" position="left">
+        <!-- biome-ignore lint/a11y/useAnchorContent: the heading text is injected by set:html, which Biome cannot see statically -->
         <a href={`#${SECTIONS.furnishing}`} aria-label={markdown.header}>
-            <!-- biome-ignore lint/a11y/useHeadingContent: content is injected by set:html -->
             <h3 set:html={markdown.header} />
         </a>
     </SectionHeader>
