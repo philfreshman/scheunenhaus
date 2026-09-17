@@ -6,23 +6,26 @@ on:
             - opened
             - synchronize
             - reopened
-            - labeled
 
 permissions:
     contents: write
 
 jobs:
     biome-migrate:
-        # renovate.json labels the biome group "biome" and keeps it off auto-merge,
-        # so the config change this pushes always gets looked at before it merges.
+        # Dependabot cannot label a single group, so the biome group is
+        # recognised by its branch - dependabot.yml names the group "biome", and
+        # Dependabot builds the branch as dependabot/<ecosystem>/biome-<hash>.
+        # dependabot-auto-merge.yml matches the same shape and refuses to merge
+        # it, so the config change this pushes is always looked at by a human.
         if: >-
-            (github.actor == 'renovate[bot]' || github.actor == 'dependabot[bot]') &&
-            contains(github.event.pull_request.labels.*.name, 'biome') &&
+            github.actor == 'dependabot[bot]' &&
+            startsWith(github.event.pull_request.head.ref, 'dependabot/') &&
+            contains(github.event.pull_request.head.ref, '/biome-') &&
             github.event.pull_request.head.repo.full_name == github.repository
         runs-on: ubuntu-latest
         steps:
             - name: Check out PR branch
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
 
